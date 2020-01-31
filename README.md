@@ -1,13 +1,6 @@
 # dotfiles
 
-## Screenshot
+I have been using [mackup][1] and [dropbox][2] to sync my configurations of CLIs and GUIs. Everything's fine, and I'll keep using them. I just want to save them here as a backup.
 
-![screenshot](./screenshot.png)
-
-## Installation
-
-1. clone the repo
-2. enter the folder
-3. execute `cp vimrc ~` and `mv ~/vimrc ~/.vimrc`
-
-Some command-line tools may be needed to install, like `the_silver_searcher`
+[1]: https://github.com/lra/mackup
+[2]: https://www.dropbox.com/
