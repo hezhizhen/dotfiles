@@ -2,12 +2,17 @@ filetype off " required
 " vim-plug
 call plug#begin('~/.vim/bundle')
 
+" languages
 Plug 'fatih/vim-go'
+Plug 'plasticboy/vim-markdown'
+
+" autocompletion
 Plug 'shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'deoplete-plugins/deoplete-go'
-Plug 'plasticboy/vim-markdown'
+
+" unclassified
 Plug 'kannokanno/previm'
 Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdtree'
@@ -125,15 +130,21 @@ au FileType go nmap <Leader>b <Plug>(go-build)
 au FileType go nmap <Leader>t <Plug>(go-test)
 au FileType go nmap gd <Plug>(go-def-tab)
 
-let g:go_highlight_functions         = 1
-let g:go_highlight_function_calls    = 1
-let g:go_highlight_methods           = 1
-let g:go_highlight_fields            = 1
-let g:go_highlight_types             = 1
-let g:go_highlight_operators         = 1
+let g:go_highlight_array_whitespace_error = 1
+let g:go_highlight_chan_whitespace_error = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_space_tab_error = 1
+let g:go_highlight_trailing_whitespace_error = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_parameters = 0 " 参数和类型不能兼得，我选择类型高亮
+let g:go_highlight_function_calls = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
 let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types       = 1
-let g:go_highlight_generate_tags     = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
 
 let g:go_fmt_command = "goimports"
 let g:go_autodetect_gopath  = 1
