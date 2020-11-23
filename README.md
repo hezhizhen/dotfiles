@@ -4,7 +4,7 @@ I have been using [mackup][1] and [dropbox][2] to sync my configurations of CLIs
 
 ## Vim
 
-Location: [`~/.vimrc`](./.vimrc).
+Location: [`~/.vimrc`](./.vimrc)
 
 ![screenshot](.media/vim.png)
 
@@ -28,6 +28,10 @@ Location: [~/.config/fish/](./.config/fish/)
    ├── fzf_key_bindings.fish ⇒ /usr/local/opt/fzf/shell/key-bindings.fish
    └── set-upstream.fish
 ```
+
+## Git
+
+Location: [`~/.gitconfig`](./.gitconfig)
 
 [1]: https://github.com/lra/mackup
 [2]: https://www.dropbox.com/
