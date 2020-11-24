@@ -1,3 +1,5 @@
+" TODO: add installation of vim-plug
+
 filetype off " required
 " vim-plug
 call plug#begin('~/.vim/bundle')
@@ -221,6 +223,7 @@ let g:airline#extensions#wordcount#filetypes = ['all']
 " tabline
 let g:airline#extensions#tabline#enabled = 1 " 开启tabline
 let g:airline#extensions#tabline#buffer_nr_show = 1 " tabline中buffer显示编号
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " whitespace
 let g:airline#extensions#whitespace#enabled = 0 " 关闭状态显示空白符号计数
 let g:airline#extensions#whitespace#symbol = '|'
