@@ -8,6 +8,7 @@ Location: [`~/.vimrc`](./.vimrc)
 
 ![screenshot](.media/vim.png)
 
+- Install [MacVim](https://macvim-dev.github.io/macvim/): `brew install macvim`
 - Font: DroidSansMono Nerd Font (12)
 
 ## Fish
