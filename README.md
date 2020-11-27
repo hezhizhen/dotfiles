@@ -4,14 +4,16 @@ I have been using [mackup][1] and [dropbox][2] to sync my configurations of CLIs
 
 ## Vim
 
-Location: [`~/.vimrc`](./.vimrc)
-
 ![screenshot](.media/vim.png)
+
+Location: [`~/.vimrc`](./.vimrc)
 
 - Install [MacVim](https://macvim-dev.github.io/macvim/): `brew install macvim`
 - Font: DroidSansMono Nerd Font (12)
 
 ## Fish
+
+![screenshot](.media/fish.png)
 
 Location: [~/.config/fish/](./.config/fish/)
 
