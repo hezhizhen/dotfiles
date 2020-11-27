@@ -14,13 +14,22 @@ Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'deoplete-plugins/deoplete-go'
 
-" unclassified
-Plug 'kannokanno/previm'
+" themes
 Plug 'morhetz/gruvbox'
-Plug 'scrooloose/nerdtree'
-Plug 'xuyuanp/nerdtree-git-plugin'
+Plug 'joshdick/onedark.vim'
+Plug 'tomasr/molokai'
+
+" beautification
+Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'ryanoasis/vim-devicons'
+
+" unclassified
+Plug 'kannokanno/previm'
+Plug 'scrooloose/nerdtree'
+Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
@@ -28,14 +37,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 Plug 'wakatime/vim-wakatime'
 Plug 'Yggdroot/indentLine'
-Plug 'kien/rainbow_parentheses.vim'
 Plug 'mhinz/vim-signify'
-Plug 'sjl/gundo.vim'
+Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
 Plug 'thinca/vim-quickrun'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
 
 call plug#end()
@@ -57,7 +64,7 @@ set splitbelow
 set mmp=2000
 
 " encoding
-set encoding=utf8
+set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,gbk,cp936,gb2312,gb18030 " encoding for reading files (in order)
 set termencoding=utf-8
 
@@ -105,7 +112,8 @@ let g:rehash256 = 1
 set t_Co=256
 set background=dark
 set termguicolors " 支持真彩色
-colorscheme gruvbox
+let g:onedark_termcolors=256
+colorscheme onedark
 if has("gui_running")
     " gui part (macvim) :he guicursor
     set guifont=DroidSansMono\ Nerd\ Font:h12
@@ -113,7 +121,8 @@ if has("gui_running")
     set guicursor=n-v-c:ver25
     set guioptions-=L " hide scroll bar on the left
     set guioptions-=r " hide scroll bar on the right
-    colorscheme gruvbox
+    " colorscheme gruvbox
+    colorscheme onedark
     set linespace=0 " linespace
     " set fu " fullscreen when open
 endif
@@ -131,6 +140,7 @@ au FileType go nmap <Leader>r <Plug>(go-run)
 au FileType go nmap <Leader>b <Plug>(go-build)
 au FileType go nmap <Leader>t <Plug>(go-test)
 au FileType go nmap gd <Plug>(go-def-tab)
+" au filetype go inoremap <buffer> . .<C-x><C-o>
 
 let g:go_highlight_array_whitespace_error = 1
 let g:go_highlight_chan_whitespace_error = 1
@@ -152,11 +162,12 @@ let g:go_fmt_command = "goimports"
 let g:go_autodetect_gopath  = 1
 " let g:syntastic_mode_map    = {'mode': 'active', 'passive_filetypes': ['go']}
 let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
-let g:go_list_type          = "quickfix"
-let g:go_auto_type_info     = 1
-let g:go_updatetime         = 1000 " 1000ms
-let g:go_guru_scope         = ["..."]
+let g:go_list_type = "quickfix"
+let g:go_auto_type_info = 1
+let g:go_updatetime = 1000 " 1000ms
+let g:go_guru_scope = ["..."]
 let g:go_implements_mode = 'gopls'
+let g:go_def_mode = 'gopls'
 
 " open :GoDeclsDir with ctrl-d
 nmap <C-d> :GoDeclsDir<cr>
@@ -216,7 +227,8 @@ if !exists('g:airline_symbols')
 endif
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'powerlineish'
+" let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'onedark' " NOTE: be the same with colorscheme
 " airline extensions
 " wordcount
 let g:airline#extensions#wordcount#filetypes = ['all']
@@ -265,11 +277,11 @@ let g:syntastic_check_on_wq = 1 " 是否在保存文件后检查
 
 " vim-markdown settings
 autocmd BufEnter, BufRead, BufNewFile *.{md, markdown, mkd} set filetype=markdown
-let g:vim_markdown_folding_disabled                       = 1
+let g:vim_markdown_folding_disabled = 1
 let g:tex_conceal = ""
 let g:vim_markdown_math=1
-let g:vim_markdown_new_list_item_indent                   = 4
-set conceallevel=3
+let g:vim_markdown_new_list_item_indent = 4
+set conceallevel=0
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_json_frontmatter = 1
@@ -318,9 +330,12 @@ highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119 guifg=green
 highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167 guifg=red
 highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227 guifg=yellow
 
-" gundo.vim settings
-let g:gundo_prefer_python3 = 1
-nnoremap <leader>u :GundoToggle<CR>
+" undotree settings
+nnoremap <leader>u :UndotreeToggle<CR>
+" https://github.com/mbbill/undotree/blob/master/plugin/undotree.vim#L15
+if !exists('g:undotree_WindowLayout')
+    let g:undotree_WindowLayout = 2
+endif
 
 " quickrun settings
 let g:quickrun_config = {
