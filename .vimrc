@@ -7,6 +7,11 @@ call plug#begin('~/.vim/bundle')
 " languages
 Plug 'fatih/vim-go'
 Plug 'plasticboy/vim-markdown'
+Plug 'stephpy/vim-yaml'
+
+" lsp
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 
 " autocompletion
 Plug 'shougo/deoplete.nvim'
@@ -280,7 +285,7 @@ autocmd BufEnter, BufRead, BufNewFile *.{md, markdown, mkd} set filetype=markdow
 let g:vim_markdown_folding_disabled = 1
 let g:tex_conceal = ""
 let g:vim_markdown_math=1
-let g:vim_markdown_new_list_item_indent = 4
+let g:vim_markdown_new_list_item_indent = 2
 set conceallevel=0
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_frontmatter = 1
@@ -317,7 +322,8 @@ au syntax * RainbowParenthesesLoadBraces
 
 " indentLine settings
 set list lcs=tab:\|\ " 这里有个空格
-let g:indentLine_setConceal=0
+let g:indentLine_setConceal = 0
+let g:indentLine_char = '⦙'
 
 " vim-signify settings
 let g:signify_vcs_list = ['git', 'hg']
@@ -334,7 +340,7 @@ highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227 guifg=yellow
 nnoremap <leader>u :UndotreeToggle<CR>
 " https://github.com/mbbill/undotree/blob/master/plugin/undotree.vim#L15
 if !exists('g:undotree_WindowLayout')
-    let g:undotree_WindowLayout = 2
+    let g:undotree_WindowLayout = 4
 endif
 
 " quickrun settings
