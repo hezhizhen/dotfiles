@@ -49,6 +49,7 @@ Plug 'thinca/vim-quickrun'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'mhinz/vim-startify'
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
 call plug#end()
 
@@ -366,6 +367,15 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " distraction-free writing
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
+" LeaderF settings
+let g:Lf_ShortcutF = '<C-P>' " default: <leader>f
+let g:Lf_ShortcutB = '<C-B>' " default: <leader>b
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_StlColorscheme = 'onedark' " default: default
+let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+let g:Lf_ShowHidden = 1
+let g:Lf_PreviewInPopup = 1
 
 " vim-startify
 let g:startify_bookmarks = [
