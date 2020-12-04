@@ -5,7 +5,7 @@ filetype off " required
 call plug#begin('~/.vim/bundle')
 
 " languages
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'plasticboy/vim-markdown'
 Plug 'stephpy/vim-yaml'
 
@@ -17,7 +17,7 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'deoplete-plugins/deoplete-go'
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 
 " themes
 Plug 'morhetz/gruvbox'
@@ -64,8 +64,8 @@ set nocompatible
 set nobackup
 set noswapfile
 set colorcolumn=80,120
-set splitright
 set splitbelow
+set splitright
 set mmp=2000
 
 " encoding
@@ -173,6 +173,11 @@ let g:go_updatetime = 1000 " 1000ms
 let g:go_guru_scope = ["..."]
 let g:go_implements_mode = 'gopls'
 let g:go_def_mode = 'gopls'
+let g:go_rename_command = 'gopls'
+let g:go_info_mode = 'gopls'
+"let g:go_auto_sameids = 1
+
+call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
 " open :GoDeclsDir with ctrl-d
 nmap <C-d> :GoDeclsDir<cr>
