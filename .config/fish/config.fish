@@ -2,12 +2,6 @@
 set -x LANG en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
-# Powerline
-powerline-daemon -q
-set POWERLINE_BASH_CONTINUATION 1
-set POWERLINE_BASH_SELECT 1
-set fish_function_path $fish_function_path "/usr/local/lib/python3.8/site-packages/powerline/bindings/fish"
-powerline-setup
 # Python
 set PATH /usr/local/bin $PATH
 set PATH ~/Library/Python/3.8/bin $PATH
@@ -25,3 +19,5 @@ set -gx PATH $PATH $HOME/.krew/bin
 [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
 # Cheat
 export CHEATCOLORS=true
+# Starship
+starship init fish | source
