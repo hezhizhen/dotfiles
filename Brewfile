@@ -1,3 +1,4 @@
+brew "git"
 brew "go"
 brew "macvim"
 brew "starship"

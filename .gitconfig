@@ -1,37 +1,37 @@
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    required = true
+    process = git-lfs filter-process
 [user]
-	name = hezhizhen
-	email = hezhizhen.yi@gmail.com
+    name = hezhizhen
+    email = hezhizhen.yi@gmail.com
 [push]
-	default = matching
+    default = matching
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 [credential]
-	helper = store
+    helper = store
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
-	excludesfile = /Users/hezhizhen/.gitignore
+    pager = diff-so-fancy | less --tabs=4 -RFX
+    excludesfile = /Users/hezhizhen/.gitignore
 [color]
-	ui = true
+    ui = true
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
 [color "diff"]
-	meta = yellow
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+    meta = yellow
+    frag = magenta bold
+    commit = yellow bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
 [merge]
-	tool = gvimdiff
+    tool = gvimdiff
 [icdiff]
-	options = --highlight --line-numbers
+    options = --highlight --line-numbers
 [pull]
-	rebase = false
+    rebase = false
