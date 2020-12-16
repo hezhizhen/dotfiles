@@ -122,7 +122,7 @@ colorscheme onedark
 if has("gui_running")
     " gui part (macvim) :he guicursor
     set guifont=DroidSansMono\ Nerd\ Font:h12
-    " set guifontwide=WenQuanYi\ Micro\ Hei:h12
+    set guifontwide=Sarasa\ Mono\ SC:h12
     set guicursor=n-v-c:ver25
     set guioptions-=L " hide scroll bar on the left
     set guioptions-=r " hide scroll bar on the right
@@ -384,6 +384,7 @@ let g:Lf_PreviewInPopup = 1
 " vim-startify
 let g:startify_bookmarks = [
     \ {'c': '~/.vimrc'}, 
+    \ {'a': '~/.config/alacritty/alacritty.yml'},
     \ {'f': '~/.config/fish/config.fish'}, 
     \ {'z': '~/.zshrc'},
     \ ]
