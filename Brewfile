@@ -1,2 +1,2 @@
 brew "go"
-brew "ag"
+brew "the_silver_searcher"
