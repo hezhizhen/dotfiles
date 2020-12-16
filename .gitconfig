@@ -4,7 +4,7 @@
     required = true
     process = git-lfs filter-process
 [user]
-    name = hezhizhen
+    name = Zhizhen He
     email = hezhizhen.yi@gmail.com
 [push]
     default = matching

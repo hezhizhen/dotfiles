@@ -399,5 +399,5 @@ let g:startify_files_number = 20
 " get rid of [ ] around icons in NerdTree (it has to be at the bottom of vimrc)
 syntax enable
 if exists("g:loaded_webdevicons")
-	call webdevicons#refresh()
+    call webdevicons#refresh()
 endif
