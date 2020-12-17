@@ -86,3 +86,9 @@ symbol = " "
 
 [swift]
 symbol = "ﯣ "
+
+[time]
+disabled = false
+format = '[\[$time\]]($style) '
+time_format = "%T"
+utc_time_offset = "+8"

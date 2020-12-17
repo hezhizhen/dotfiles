@@ -7,11 +7,13 @@ sync:
 	[ -f ~/.vimrc ] || ln -s $(PWD)/.vimrc ~/.vimrc
 	[ -f ~/.gitconfig ] || ln -s $(PWD)/.gitconfig ~/.gitconfig
 	[ -f ~/.tmux.conf ] || ln -s $(PWD)/.tmux.conf ~/.tmux.conf
+	[ -f ~/.config/starship.toml ] || ln -s $(PWD)/.config/starship.toml ~/.config/starship.toml
 
 clean:
 	rm -f ~/.config/alacritty/alacritty.yml
 	rm -f ~/.vimrc
 	rm -f ~/.gitconfig
 	rm -f ~/.tmux.conf
+	rm -f ~/.config/starship.toml
 
 .PHONY: all clean sync build run kill
