@@ -120,7 +120,7 @@ let g:onedark_termcolors=256
 colorscheme onedark
 if has("gui_running")
     " gui part (macvim) :he guicursor
-    set guifont=DroidSansMono\ Nerd\ Font:h12
+    set guifont=DroidSansMono\ Nerd\ Font:h11
     set guifontwide=Sarasa\ Mono\ SC:h12
     set guicursor=n-v-c:ver25
     set guioptions-=L " hide scroll bar on the left
