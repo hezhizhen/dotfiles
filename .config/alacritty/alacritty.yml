@@ -788,7 +788,7 @@ debug:
   #   - Info
   #   - Debug
   #   - Trace
-  #log_level: Warn
+  log_level: Warn
 
   # Print all received window events.
   #print_events: false

@@ -25,14 +25,17 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 ## Screenshots
 
-### Vim
+### vim
 
 ![screenshot](.media/vim.png)
 
-### Fish with starship
+### fish
 
 ![screenshot](.media/fish.png)
 
+* [starship][3]
+
 [1]: https://github.com/lra/mackup
 [2]: https://www.dropbox.com/
+[3]: https://starship.rs/
 [5]: https://github.com/fatih/dotfiles/
