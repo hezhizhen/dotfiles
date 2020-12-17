@@ -1,5 +1,3 @@
-" TODO: add installation of vim-plug
-
 filetype off " required
 " vim-plug
 call plug#begin('~/.vim/bundle')
