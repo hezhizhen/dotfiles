@@ -8,6 +8,8 @@ sync:
 	[ -f ~/.gitconfig ] || ln -s $(PWD)/.gitconfig ~/.gitconfig
 	[ -f ~/.tmux.conf ] || ln -s $(PWD)/.tmux.conf ~/.tmux.conf
 	[ -f ~/.config/starship.toml ] || ln -s $(PWD)/.config/starship.toml ~/.config/starship.toml
+	[ -f ~/.yabairc ] || ln -s $(PWD)/.yabairc ~/.yabairc
+	[ -f ~/.skhdrc ] || ln -s $(PWD)/.skhdrc ~/.skhdrc
 
 clean:
 	rm -f ~/.config/alacritty/alacritty.yml
@@ -15,5 +17,7 @@ clean:
 	rm -f ~/.gitconfig
 	rm -f ~/.tmux.conf
 	rm -f ~/.config/starship.toml
+	rm -f ~/.yabairc
+	rm -f ~/.skhdrc
 
 .PHONY: all clean sync build run kill
