@@ -146,3 +146,6 @@
 # alt - p : yabai -m window --toggle sticky;\
 #           yabai -m window --toggle topmost;\
 #           yabai -m window --toggle pip
+
+# open alacritty
+ctrl + cmd - i : /Applications/Alacritty.app/Contents/MacOS/alacritty
