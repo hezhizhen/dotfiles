@@ -15,8 +15,8 @@
 # yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # global settings
-yabai -m config mouse_follows_focus          on           # when focusing a window, put the mouse at its center
-yabai -m config focus_follows_mouse          autoraise    # automatically focus the window under the mouse
+yabai -m config mouse_follows_focus          off          # when focusing a window, put the mouse at its center
+yabai -m config focus_follows_mouse          off          # automatically focus the window under the mouse
 yabai -m config window_placement             second_child # specify whether managed windows should become the first or second leaf-node
 yabai -m config window_topmost               off
 yabai -m config window_shadow                on
