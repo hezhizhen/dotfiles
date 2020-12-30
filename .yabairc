@@ -44,4 +44,9 @@ yabai -m config left_padding                 12
 yabai -m config right_padding                12
 yabai -m config window_gap                   06
 
+# custom
+# float system preferences
+#yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add title='Preferences$' manage=off topmost=on
+
 echo "yabai configuration loaded.."
