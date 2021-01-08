@@ -44,7 +44,7 @@ Plug 'mhinz/vim-signify'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
 Plug 'thinca/vim-quickrun'
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 Plug 'junegunn/limelight.vim'
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
