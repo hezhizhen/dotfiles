@@ -1,0 +1,13 @@
+{
+  "go.goplsOptions": {
+    "completeUnimported": true
+  },
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"]
+    }
+  }
+}

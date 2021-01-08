@@ -12,6 +12,8 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'joshdick/onedark.vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+Plug 'MattesGroeger/vim-bookmarks'
 
 call plug#end()
 
@@ -63,3 +65,19 @@ let g:go_implements_mode = 'gopls'
 let g:go_def_mode = 'gopls'
 let g:go_rename_command = 'gopls'
 let g:go_info_mode = 'gopls'
+
+" Search
+let g:Lf_ShortcutF = '<C-P>' " default: <leader>f
+let g:Lf_ShortcutB = '<C-B>' " default: <leader>b
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_StlColorscheme = 'onedark' " default: default
+let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+let g:Lf_ShowHidden = 1
+let g:Lf_PreviewInPopup = 1
+
+" Bookmark
+let g:bookmark_auto_save_file = $HOME.'/.config/nvim/.vim-bookmarks'
+highlight BookmarkSign ctermbg=NONE ctermfg=160
+highlight BookmarkLine ctermbg=194 ctermfg=NONE
+let g:bookmark_sign = '♥'
+let g:bookmark_highlight_lines = 1
