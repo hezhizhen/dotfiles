@@ -36,6 +36,7 @@ set incsearch
 set ignorecase
 set smartcase
 set clipboard+=unnamed " share clipboard with system
+set colorcolumn=80,120
 nnoremap <leader><space> :nohlsearch<CR>
 
 " Go
