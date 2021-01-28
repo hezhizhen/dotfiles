@@ -6,3 +6,4 @@ brew "the_silver_searcher"
 brew "tmux"
 
 cask "anki"
+cask "finicky"
