@@ -7,6 +7,10 @@ module.exports = {
     { // 少数派
       match: /^https:\/\/sspai\.com\/.*$/,
       browser: "Vivaldi"
+    },
+    { // IFTTT
+      match: /^https:\/\/ift\.tt\/.*$/,
+      browser: "Vivaldi"
     }
   ]
 }
