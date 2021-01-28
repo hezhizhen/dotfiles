@@ -11,6 +11,7 @@ sync:
 	[ -f ~/.yabairc ] || ln -s $(PWD)/.yabairc ~/.yabairc
 	[ -f ~/.skhdrc ] || ln -s $(PWD)/.skhdrc ~/.skhdrc
 	[ -d ~/.config/nvim ] || ln -s $(PWD)/.config/nvim ~/.config/nvim
+	[ -f ~/.finicky.js ] || ln -s $(PWD)/.finicky.js ~/.finicky.js
 
 clean:
 	rm -f ~/.config/alacritty/alacritty.yml
@@ -21,5 +22,6 @@ clean:
 	rm -f ~/.yabairc
 	rm -f ~/.skhdrc
 	rm -rf ~/.config/nvim
+	rm -f ~/.finicky.js
 
 .PHONY: all clean sync build run kill
