@@ -11,6 +11,10 @@ module.exports = {
     { // IFTTT
       match: /^https:\/\/ift\.tt\/.*$/,
       browser: "Vivaldi"
+    },
+    { // Zapiar
+      match: /^https:\/\/zapier\.com\/.*$/,
+      browser: "Vivaldi"
     }
   ]
 }
