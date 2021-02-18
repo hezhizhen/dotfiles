@@ -1,8 +1,8 @@
 colors:
-  body: none
-  date: blue
-  tags: cyan
-  title: white
+  body: white
+  date: yellow
+  tags: blue
+  title: magenta
 default_hour: 9
 default_minute: 0
 editor: vim
