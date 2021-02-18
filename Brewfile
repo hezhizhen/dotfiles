@@ -4,6 +4,7 @@ brew "macvim"
 brew "starship"
 brew "the_silver_searcher"
 brew "tmux"
+brew "jrnl"
 
 cask "anki"
 cask "finicky"
