@@ -260,7 +260,7 @@ function! s:tagbar_integration()
 endfunction
 
 " tagbar settings
-let g:tagbar_ctags_bin = '/usr/local/Cellar/ctags/5.8_1/bin/ctags'
+let g:tagbar_ctags_bin = '/usr/local/Cellar/ctags/5.8_2/bin/ctags'
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 let g:tagbar_width = 64 " 设置窗口宽度。默认为40
