@@ -16,7 +16,7 @@ I have been using [mackup][1] and [dropbox][2] to sync my configurations of CLIs
 
 Credit to @fatih and his [dotfiles][5]
 
-```
+```shell
 # install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
@@ -39,11 +39,11 @@ These screenshots are stored in the [first issue][4] of this repository.
 
 ### vim
 
-![](https://user-images.githubusercontent.com/7611700/102567433-77384c00-411c-11eb-81d1-81f1c98a5915.png)
+![vim](https://user-images.githubusercontent.com/7611700/102567433-77384c00-411c-11eb-81d1-81f1c98a5915.png)
 
 ### fish
 
-![](https://user-images.githubusercontent.com/7611700/102567534-aa7adb00-411c-11eb-80bc-e90d6376ca1d.png)
+![fish](https://user-images.githubusercontent.com/7611700/102567534-aa7adb00-411c-11eb-80bc-e90d6376ca1d.png)
 
 - [starship][3]
 
