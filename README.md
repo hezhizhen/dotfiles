@@ -5,6 +5,7 @@ I have been using [mackup][1] and [dropbox][2] to sync my configurations of CLIs
 ## What I use
 
 - [alacritty](.config/alacritty)
+- [emacs](.doom.d)
 - [finicky](.finicky.js)
 - [fish](.config/fish)
 - [git](.gitconfig)
@@ -31,6 +32,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 # open vim and install all plugins
 :PlugInstall
+
+# install doom emacs
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ```
 
 ## Screenshots

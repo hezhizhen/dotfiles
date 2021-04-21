@@ -1,4 +1,5 @@
 # Created by `brew bundle dump`
+tap "d12frosted/emacs-plus"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
@@ -21,6 +22,7 @@ brew "starship"
 brew "the_silver_searcher"
 brew "tig"
 brew "tmux"
+brew "d12frosted/emacs-plus/emacs-plus@28", args: ["with-native-comp"]
 cask "alfred"
 cask "anki"
 cask "coconutbattery"
