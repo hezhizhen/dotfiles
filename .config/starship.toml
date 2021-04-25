@@ -13,21 +13,21 @@ disabled = false
 "minikube" = "local"
 "kubernetes-admin@cluster.local" = "172.19.80.11"
 
-[aws]
-symbol = " "
+#[aws]
+#symbol = " "
 
 [battery]
 full_symbol = ""
 charging_symbol = ""
 discharging_symbol = ""
 
-[conda]
-symbol = " "
+#[conda]
+#symbol = " "
 
-[dart]
-symbol = " "
+#[dart]
+#symbol = " "
 
-[docker]
+[docker_context]
 symbol = " "
 
 [elixir]
@@ -42,26 +42,29 @@ symbol = " "
 [golang]
 symbol = " "
 
-[haskell]
-symbol = " "
+#[haskell]
+#symbol = " "
+
+[helm]
+format = "via [⎈ $version](bold white) "
 
 [hg_branch]
 symbol = " "
 
-[java]
-symbol = " "
+#[java]
+#symbol = " "
 
-[julia]
-symbol = " "
+#[julia]
+#symbol = " "
 
 [memory_usage]
 symbol = " "
 
-[nim]
-symbol = " "
+#[nim]
+#symbol = " "
 
-[nix_shell]
-symbol = " "
+#[nix_shell]
+#symbol = " "
 
 [nodejs]
 symbol = " "
@@ -69,20 +72,25 @@ symbol = " "
 [package]
 symbol = " "
 
-[perl]
-symbol = " "
+#[perl]
+#symbol = " "
 
-[php]
-symbol = " "
+#[php]
+#symbol = " "
 
 [python]
 symbol = " "
 
-[ruby]
-symbol = " "
+#[ruby]
+#symbol = " "
 
 [rust]
 symbol = " "
+
+[shell]
+fish_indicator = ""
+powershell_indicator = "_"
+disabled = false
 
 [swift]
 symbol = "ﯣ "
