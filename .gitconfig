@@ -33,7 +33,10 @@
     tool = gvimdiff
 [icdiff]
     options = --highlight --line-numbers
+[delta]
+    side-by-side = true
+    line-numbers = true
 [pull]
     rebase = false
 [commit]
-	gpgsign = true
+	gpgsign = false
