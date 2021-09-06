@@ -32,6 +32,7 @@ brew "rust"
 brew "starship"
 brew "the_silver_searcher"
 brew "tig"
+brew "tldr"
 brew "tmux"
 brew "wget"
 brew "d12frosted/emacs-plus/emacs-plus@28", args: ["with-native-comp"]
