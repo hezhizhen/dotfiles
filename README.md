@@ -47,7 +47,7 @@ These screenshots are stored in the [first issue][4] of this repository.
 
 ### fish
 
-![fish](https://user-images.githubusercontent.com/7611700/102567534-aa7adb00-411c-11eb-80bc-e90d6376ca1d.png)
+![](https://user-images.githubusercontent.com/7611700/185289386-089984a2-798d-4347-af97-217b5760da7c.png)
 
 - [starship][3]
 

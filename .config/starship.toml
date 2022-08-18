@@ -1,102 +1,223 @@
-# Don't print a new line at the start of the prompt
-add_newline = false
+format = """
+[](#9A348E)\
+$username\
+[](bg:#DA627D fg:#9A348E)\
+$directory\
+[](fg:#DA627D bg:#FCA17D)\
+$git_branch\
+$git_commit\
+$git_metrics\
+$git_state\
+$git_status\
+[](fg:#FCA17D bg:#86BBD8)\
+$c\
+$elixir\
+$elm\
+$golang\
+$haskell\
+$helm\
+$java\
+$julia\
+$lua\
+$nim\
+$nodejs\
+$package\
+$perl\
+$php\
+$python\
+$ruby\
+$rust\
+$swift\
+[](fg:#86BBD8 bg:#06969A)\
+$docker_context\
+$kubernetes\
+[](fg:#06969A bg:#33658A)\
+$time\
+[ ](fg:#33658A)\
+"""
 
-# Replace the "❯" symbol in the prompt with "➜"
-[character]                            # The name of the module we are configuring is "character"
-success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
-error_symbol = "[✗](bold red) "
+right_format = """
+$cmd_duration
+"""
 
-[kubernetes]
-format = 'on [⛵ $context \($namespace\)](dimmed green) '
+# Disable the blank line at the start of the prompt
+# add_newline = false
+
+# https://starship.rs/config/#username
+[username]
+show_always = true
+style_user = "bg:#9A348E"
+style_root = "bg:#9A348E"
+format = '[$user ]($style)'
+
+# https://starship.rs/config/#directory
+[directory]
+style = "bg:#DA627D"
+format = "[ $path$read_only ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+read_only = " "
+
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"~/go/src/sankuai.com/XY" = "mcloud"
+# Keep in mind that the order matters. For example:
+# "Important Documents" = "  "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important  " = "  "
+
+# https://starship.rs/config/#git-branch
+[git_branch]
+symbol = ""
+style = "bg:#FCA17D"
+format = '[[ $symbol $branch ](bg:#FCA17D)]($style)'
+
+[git_commit]
+commit_hash_length = 4
+
+[git_metrics]
 disabled = false
-[kubernetes.context_aliases]
-"minikube" = "local"
-"kubernetes-admin@cluster.local" = "172.19.80.11"
+added_style = "fg:cyan bg:#FCA17D"
+deleted_style = "fg:red bg:#FCA17D"
+format = '[+$added]($added_style)[/](bg:#FCA17D)[-$deleted ]($deleted_style)'
 
-#[aws]
-#symbol = " "
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) ' # TODO: tweak it
 
-[battery]
-full_symbol = ""
-charging_symbol = ""
-discharging_symbol = ""
+# https://starship.rs/config/#git-status
+[git_status]
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+style = "bg:#FCA17D"
+format = '[[($all_status$ahead_behind )](bg:#FCA17D)]($style)'
 
-#[conda]
-#symbol = " "
-
-#[dart]
-#symbol = " "
-
-[docker_context]
-symbol = " "
+# https://starship.rs/config/#c
+[c]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
 [elixir]
 symbol = " "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
 [elm]
 symbol = " "
-
-[git_branch]
-symbol = " "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
 [golang]
 symbol = " "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
-#[haskell]
-#symbol = " "
+[haskell]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
+# https://starship.rs/config/#helm
 [helm]
-format = "via [⎈ $version](bold white) "
+symbol = "⎈ "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
-[hg_branch]
-symbol = " "
+[java]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
-#[java]
-#symbol = " "
+[julia]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
-#[julia]
-#symbol = " "
+[lua]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
-[memory_usage]
-symbol = " "
-
-#[nim]
-#symbol = " "
-
-#[nix_shell]
-#symbol = " "
+[nim]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
 [nodejs]
-symbol = " "
+symbol = ""
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
 [package]
 symbol = " "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
-#[perl]
-#symbol = " "
+[perl]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
-#[php]
-#symbol = " "
+[php]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
+# https://starship.rs/config/#python
 [python]
-symbol = " "
+symbol = " "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
+# Only use the `python3` binary to get the version.
+python_binary = "python3"
 
-#[ruby]
-#symbol = " "
+[ruby]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
+# https://starship.rs/config/#rust
 [rust]
-symbol = " "
-
-[shell]
-fish_indicator = ""
-powershell_indicator = "_"
-disabled = false
+symbol = ""
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
 [swift]
 symbol = "ﯣ "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
+# https://starship.rs/config/#docker-context
+[docker_context]
+symbol = " "
+style = "bg:#06969A"
+format = '[[ $symbol $context ](bg:#06969A)]($style) $path'
+
+# https://starship.rs/config/#kubernetes
+[kubernetes]
+disabled = false
+symbol = "☸"
+style = "bg:#06969A"
+format = '[[ $symbol $context ](bg:#06969A)]($style)'
+[kubernetes.context_aliases]
+"minikube" = "minikube"
+
+# https://starship.rs/config/#time
 [time]
 disabled = false
-format = '[\[$time\]]($style) '
-time_format = "%T"
-utc_time_offset = "+8"
+time_format = "%R" # Hour:Minute Format
+style = "bg:#33658A"
+format = '[[ ♥ $time ](bg:#33658A)]($style)'
+
+# https://starship.rs/config/#command-duration
+[cmd_duration]
+min_time = 10 # ms
+show_milliseconds = true
+format = "[$duration](bold yellow)"
