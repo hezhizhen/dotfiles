@@ -34,9 +34,9 @@
 [icdiff]
     options = --highlight --line-numbers
 [delta]
-    side-by-side = true
     line-numbers = true
+    side-by-side = true
 [pull]
-    rebase = false
+    rebase = true
 [commit]
-	gpgsign = false
+    gpgsign = true
