@@ -56,21 +56,21 @@ style = "bg:#DA627D"
 format = "[ $path$read_only ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
-read_only = " "
+read_only = " 󰌾"
 
 # Here is how you can shorten some long paths by text replacement
 # similar to mapped_locations in Oh My Posh:
 [directory.substitutions]
-"Documents" = " "
+"Documents" = "󰈙 "
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
 "~/go/src/sankuai.com/XY" = "mcloud"
 # Keep in mind that the order matters. For example:
-# "Important Documents" = "  "
+# "Important Documents" = " 󰈙 "
 # will not be replaced, because "Documents" was already substituted before.
 # So either put "Important Documents" before "Documents" or use the substituted version:
-# "Important  " = "  "
+# "Important 󰈙 " = " 󰈙 "
 
 # https://starship.rs/config/#git-branch
 [git_branch]
@@ -146,7 +146,7 @@ style = "bg:#86BBD8"
 format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
 [nim]
-symbol = " "
+symbol = "󰆥 "
 style = "bg:#86BBD8"
 format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
@@ -156,7 +156,7 @@ style = "bg:#86BBD8"
 format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
 [package]
-symbol = " "
+symbol = "󰏗 "
 style = "bg:#86BBD8"
 format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
@@ -190,7 +190,7 @@ style = "bg:#86BBD8"
 format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
 [swift]
-symbol = "ﯣ "
+symbol = "󰛥 "
 style = "bg:#86BBD8"
 format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
@@ -212,12 +212,12 @@ format = '[[ $symbol $context ](bg:#06969A)]($style)'
 # https://starship.rs/config/#time
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
+time_format = "%R"                           # Hour:Minute Format
 style = "bg:#33658A"
 format = '[[ ♥ $time ](bg:#33658A)]($style)'
 
 # https://starship.rs/config/#command-duration
 [cmd_duration]
-min_time = 10 # ms
+min_time = 10                       # ms
 show_milliseconds = true
 format = "[$duration](bold yellow)"
