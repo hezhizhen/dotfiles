@@ -28,6 +28,8 @@ clean:
 	rm -rf ~/.config/jrnl
 	rm -rf ~/.doom.d
 
+update: brew spell
+
 brew:
 	brew upgrade
 	mas upgrade
@@ -36,4 +38,4 @@ brew:
 spell:
 	typos
 
-.PHONY: all clean sync build run kill
+.PHONY: all clean sync brew spell update

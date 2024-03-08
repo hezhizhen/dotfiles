@@ -1,15 +1,16 @@
 format = """
 [](#9A348E)\
+$os\
 $username\
-[](bg:#DA627D fg:#9A348E)\
+[](bg:#DA627D fg:#9A348E)\
 $directory\
-[](fg:#DA627D bg:#FCA17D)\
+[](fg:#DA627D bg:#FCA17D)\
 $git_branch\
 $git_commit\
 $git_metrics\
 $git_state\
 $git_status\
-[](fg:#FCA17D bg:#86BBD8)\
+[](fg:#FCA17D bg:#86BBD8)\
 $c\
 $elixir\
 $elm\
@@ -28,20 +29,29 @@ $python\
 $ruby\
 $rust\
 $swift\
-[](fg:#86BBD8 bg:#06969A)\
+[](fg:#86BBD8 bg:#06969A)\
 $docker_context\
 $kubernetes\
-[](fg:#06969A bg:#33658A)\
+[](fg:#06969A bg:#33658A)\
 $time\
-[ ](fg:#33658A)\
+[ ](fg:#33658A)\
 """
 
+# 把一些 indicator 移到右边，并能根据窗口宽度隐藏；精简左侧的内容
 right_format = """
 $cmd_duration
 """
 
 # Disable the blank line at the start of the prompt
 # add_newline = false
+
+[os]
+disabled = false
+format = "[$symbol ]($style)"
+style = "bg:#9A348E"
+
+[os.symbols]
+Macos = ""
 
 # https://starship.rs/config/#username
 [username]
@@ -214,7 +224,7 @@ format = '[[ $symbol $context ](bg:#06969A)]($style)'
 disabled = false
 time_format = "%R"                           # Hour:Minute Format
 style = "bg:#33658A"
-format = '[[ ♥ $time ](bg:#33658A)]($style)'
+format = '[[  $time ](bg:#33658A)]($style)'
 
 # https://starship.rs/config/#command-duration
 [cmd_duration]

@@ -73,6 +73,8 @@ brew "tig"
 brew "tldr"
 # Program that allows you to count code, quickly
 brew "tokei"
+# Source code spell checker
+brew "typos-cli"
 # Internet file retriever
 brew "wget"
 # Password manager that keeps all passwords secure behind one password
@@ -131,6 +133,7 @@ mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Playgrounds", id: 1496833156
+mas "Refined GitHub", id: 1519867270
 mas "Save to Raindrop.io", id: 1549370672
 mas "TestFlight", id: 899247664
 mas "Todoist", id: 585829637
