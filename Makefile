@@ -29,6 +29,8 @@ clean:
 	rm -rf ~/.doom.d
 
 brew:
+	brew upgrade
+	mas upgrade
 	brew bundle dump --describe --force
 
 .PHONY: all clean sync build run kill
