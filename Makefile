@@ -33,4 +33,7 @@ brew:
 	mas upgrade
 	brew bundle dump --describe --force
 
+spell:
+	typos
+
 .PHONY: all clean sync build run kill
