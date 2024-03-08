@@ -28,4 +28,7 @@ clean:
 	rm -rf ~/.config/jrnl
 	rm -rf ~/.doom.d
 
+brew:
+	brew bundle dump --describe --force
+
 .PHONY: all clean sync build run kill
