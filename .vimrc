@@ -99,7 +99,7 @@ set tabstop=4     " number of visual spaces per TAB
 set softtabstop=4 " number of spaces in tab when editing
 
 " indent use backspace to delete indent
-" eol use backspace to delete line at begining
+" eol use backspace to delete line at beginning
 " start delete char you just typed in
 set backspace=indent,eol,start
 set wildmenu " visual autocomplete for command menu

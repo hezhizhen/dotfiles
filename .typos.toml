@@ -1,0 +1,8 @@
+[default.extend-words]
+ba = "ba"
+Siduction = "Siduction"
+iterm = "iterm"         # iterm2
+Sur = "Sur"             # macOS Big Sur
+[files]
+extend-exclude = [".git"]
+ignore-hidden = false
