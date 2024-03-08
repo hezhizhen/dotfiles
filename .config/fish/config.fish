@@ -1,19 +1,47 @@
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
+
 # General
 set -x LANG en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
-set -g fish_user_paths /usr/local/sbin $fish_user_paths
-# Python
-set PATH /usr/local/bin $PATH
+set -g fish_user_paths /opt/homebrew/bin $fish_user_paths
+set -g fish_user_paths /opt/homebrew/sbin $fish_user_paths
+
+# merge fish history across sessions
+abbr -a hr 'history --merge'
+
+if type -q bat
+    function hp -d "highlight help messages with `bat`"
+        argparse --min-args 1 h/help -- $argv
+        or return
+        $argv --help 2>&1 | bat --plain --language=help
+    end
+end
+
+# colored man output
+# from http://linuxtidbits.wordpress.com/2009/03/23/less-colors-for-man-pages/
+setenv LESS_TERMCAP_mb \e'[01;31m' # begin blinking
+setenv LESS_TERMCAP_md \e'[01;38;5;74m' # begin bold
+setenv LESS_TERMCAP_me \e'[0m' # end mode
+setenv LESS_TERMCAP_se \e'[0m' # end standout-mode
+setenv LESS_TERMCAP_so \e'[38;5;246m' # begin standout-mode - info box
+setenv LESS_TERMCAP_ue \e'[0m' # end underline
+setenv LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
+
+# Scripts
+set -gx SCRIPTSPATH $HOME/scripts
+set PATH $PATH $SCRIPTSPATH
+
 # Golang
 set -gx GOPATH ~/go
 set PATH $GOPATH/bin $PATH
-set PATH $PATH /usr/local/opt/go/libexec/bin
 # Rust
 set PATH ~/.cargo/bin $PATH
 # Kubernetes
 set -gx PATH $PATH $HOME/.krew/bin
 # Autojump
-[ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
+[ -f /opt/homebrew/share/autojump/autojump.fish ]; and source /opt/homebrew/share/autojump/autojump.fish
 # Cheat
 export CHEATCOLORS=true
 # Starship
