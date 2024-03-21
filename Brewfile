@@ -1,6 +1,8 @@
+tap "buo/cask-upgrade"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
+tap "homebrew/services"
 # Shell extension to jump to frequently used directories
 brew "autojump"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -9,6 +11,8 @@ brew "bat"
 brew "calc"
 # Statistics utility to count lines of code
 brew "cloc"
+# Configurable talking characters in ASCII art
+brew "cowsay"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Display graphs and colors of file system space/usage
@@ -29,10 +33,16 @@ brew "ghq"
 brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
+# Git extension for versioning large files
+brew "git-lfs"
 # Source code tag system
 brew "global"
+# GNU implementation of the famous stream editor
+brew "gnu-sed"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Improved top (interactive process viewer)
+brew "htop"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
 # Improved colored diff
@@ -47,6 +57,8 @@ brew "lazygit"
 brew "lolcat"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
+# Powerful, clean, object-oriented scripting language
+brew "ruby"
 # GUI for vim, made for macOS
 brew "macvim"
 # Mac App Store command-line interface
@@ -63,6 +75,10 @@ brew "neovim"
 brew "node"
 # Tools for one-time password authentication systems
 brew "oath-toolkit"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Autoformat shell script source code
+brew "shfmt"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Code-search similar to ack
@@ -117,6 +133,10 @@ cask "raycast"
 cask "rescuetime"
 # Rime input method engine
 cask "squirrel"
+# Break time reminder app
+cask "stretchly"
+# Cloud video conferencing
+cask "tencent-meeting"
 # Open-source code editor
 cask "visual-studio-code"
 # Create, manage, and run virtual machines
@@ -125,10 +145,14 @@ cask "vmware-fusion"
 cask "wakatime"
 # Messaging and calling application
 cask "wechatwork"
+# Multiplayer code editor
+cask "zed"
 mas "1Password for Safari", id: 1569813296
 mas "AdGuard for Safari", id: 1440147259
+mas "DingTalk", id: 1435447041
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
+mas "Irvue", id: 1039633667
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
