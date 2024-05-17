@@ -75,7 +75,6 @@ read_only = " 󰌾"
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
-"~/go/src/sankuai.com/XY" = "mcloud"
 # Keep in mind that the order matters. For example:
 # "Important Documents" = " 󰈙 "
 # will not be replaced, because "Documents" was already substituted before.
@@ -216,8 +215,6 @@ disabled = false
 symbol = "☸"
 style = "bg:#06969A"
 format = '[[ $symbol $context ](bg:#06969A)]($style)'
-[kubernetes.context_aliases]
-"minikube" = "minikube"
 
 # https://starship.rs/config/#time
 [time]
