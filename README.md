@@ -2,17 +2,6 @@
 
 I have been using [mackup][1] and [dropbox][2] to sync my configurations of CLIs and GUIs. Everything's fine, and I'll keep using them. I just want to save them here as a backup.
 
-## What I use
-
-- [alacritty](.config/alacritty)
-- [emacs](.doom.d)
-- [finicky](.finicky.js)
-- [fish](.config/fish)
-- [git](.gitconfig)
-- [jrnl](.config/jrnl)
-- [vim](.vimrc)
-- [tmux](.tmux.conf)
-
 ## Installation
 
 Credit to @fatih and his [dotfiles][5]
