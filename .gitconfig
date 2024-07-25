@@ -1,10 +1,10 @@
 [filter "lfs"]
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
+    clean    = git-lfs clean -- %f
+    smudge   = git-lfs smudge -- %f
     required = true
-    process = git-lfs filter-process
+    process  = git-lfs filter-process
 [user]
-    name = Zhizhen He
+    name  = Zhizhen He
     email = hezhizhen.yi@gmail.com
 [push]
     default = matching
@@ -13,21 +13,21 @@
 [credential]
     helper = store
 [core]
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    pager        = diff-so-fancy | less --tabs=4 -RFX
     excludesfile = /Users/hezhizhen/.gitignore
 [color]
     ui = true
 [color "diff-highlight"]
-    oldNormal = red bold
+    oldNormal    = red bold
     oldHighlight = red bold 52
-    newNormal = green bold
+    newNormal    = green bold
     newHighlight = green bold 22
 [color "diff"]
-    meta = yellow
-    frag = magenta bold
-    commit = yellow bold
-    old = red bold
-    new = green bold
+    meta       = yellow
+    frag       = magenta bold
+    commit     = yellow bold
+    old        = red bold
+    new        = green bold
     whitespace = red reverse
 [merge]
     tool = gvimdiff

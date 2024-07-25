@@ -41,13 +41,17 @@ git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 
 These screenshots are stored in the [first issue][4] of this repository.
 
+### desktop
+
+![desktop](https://github.com/user-attachments/assets/c6ac8278-5ec3-4a87-a0e0-d3bfc5ca8639)
+
 ### vim
 
 ![vim](https://user-images.githubusercontent.com/7611700/102567433-77384c00-411c-11eb-81d1-81f1c98a5915.png)
 
 ### fish
 
-![](https://user-images.githubusercontent.com/7611700/185289386-089984a2-798d-4347-af97-217b5760da7c.png)
+![fish](https://user-images.githubusercontent.com/7611700/185289386-089984a2-798d-4347-af97-217b5760da7c.png)
 
 - [starship][3]
 
