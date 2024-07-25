@@ -1,6 +1,8 @@
 # dotfiles
 
-I have been using [mackup][1] and [dropbox][2] to sync my configurations of CLIs and GUIs. Everything's fine, and I'll keep using them. I just want to save them here as a backup.
+This is the public version of my dotfiles.
+It's also the base of dotfiles that I use on my working laptops.
+I'll update it from time to time to keep it up-to-date.
 
 ## Installation
 
@@ -32,7 +34,5 @@ These screenshots are stored in the [first issue][4] of this repository.
 
 ![desktop](https://github.com/user-attachments/assets/c6ac8278-5ec3-4a87-a0e0-d3bfc5ca8639)
 
-[1]: https://github.com/lra/mackup
-[2]: https://www.dropbox.com/
 [4]: https://github.com/hezhizhen/dotfiles/issues/1
 [5]: https://github.com/fatih/dotfiles/
