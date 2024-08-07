@@ -1,7 +1,7 @@
+# os, directory, git info, languages, docker/kubernetes, time
 format = """
 [](#9A348E)\
 $os\
-$username\
 [](bg:#DA627D fg:#9A348E)\
 $directory\
 [](fg:#DA627D bg:#FCA17D)\
@@ -42,12 +42,14 @@ right_format = """
 $cmd_duration
 """
 
+command_timeout = 1000 # ms
+
 # Disable the blank line at the start of the prompt
 # add_newline = false
 
 [os]
 disabled = false
-format = "[$symbol ]($style)"
+format = "[ $symbol ]($style)"
 style = "bg:#9A348E"
 
 [os.symbols]
