@@ -29,20 +29,23 @@ setenv LESS_TERMCAP_so \e'[38;5;246m' # begin standout-mode - info box
 setenv LESS_TERMCAP_ue \e'[0m' # end underline
 setenv LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
 
-# Scripts
-set -gx SCRIPTSPATH $HOME/scripts
-set PATH $PATH $SCRIPTSPATH
-
-# Golang
+# Languages
+# Go
 set -gx GOPATH ~/go
 set PATH $GOPATH/bin $PATH
 # Rust
 set PATH ~/.cargo/bin $PATH
-# Kubernetes
-set -gx PATH $PATH $HOME/.krew/bin
+
+# Tools
 # Autojump
 [ -f /opt/homebrew/share/autojump/autojump.fish ]; and source /opt/homebrew/share/autojump/autojump.fish
 # Cheat
 export CHEATCOLORS=true
+# Kubernetes
+set -gx PATH $PATH $HOME/.krew/bin
 # Starship
 starship init fish | source
+
+# Scripts
+set -gx SCRIPTSPATH $HOME/scripts
+set PATH $PATH $SCRIPTSPATH
