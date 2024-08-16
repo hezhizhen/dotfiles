@@ -1,5 +1,7 @@
 # dotfiles
 
+[![wakatime](https://wakatime.com/badge/user/9053a32c-e602-40ae-96b2-be7c43d90c66/project/018e1503-c7af-4ed1-8f23-e7a19646e9d3.svg)](https://wakatime.com/badge/user/9053a32c-e602-40ae-96b2-be7c43d90c66/project/018e1503-c7af-4ed1-8f23-e7a19646e9d3)
+
 This is the public version of my dotfiles.
 It's also the base of dotfiles that I use on my working laptops.
 I'll update it from time to time to keep it up-to-date.
