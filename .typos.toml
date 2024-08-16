@@ -3,6 +3,7 @@ ba = "ba"
 Siduction = "Siduction"
 iterm = "iterm"         # iterm2
 Sur = "Sur"             # macOS Big Sur
+noice = "noice"         # Neovim plugin: https://github.com/folke/noice.nvim
 [files]
 extend-exclude = [".git"]
 ignore-hidden = false

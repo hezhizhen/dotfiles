@@ -1,7 +1,6 @@
 all: sync
 
 sync:
-
 	[ -d ~/.doom.d ]     || ln -s $(PWD)/.doom.d     ~/.doom.d
 	[ -f ~/.finicky.js ] || ln -s $(PWD)/.finicky.js ~/.finicky.js
 	[ -f ~/.gitconfig ]  || ln -s $(PWD)/.gitconfig  ~/.gitconfig
@@ -12,7 +11,6 @@ sync:
 	[ -d ~/.config ] || ln -s $(PWD)/.config ~/.config
 
 clean:
-
 	rm -rf ~/.doom.d
 	rm -f ~/.finicky.js
 	rm -f ~/.gitconfig
