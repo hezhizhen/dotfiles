@@ -1,8 +1,11 @@
+tap "ariga/tap"
 tap "buo/cask-upgrade"
+tap "felixkratz/formulae"
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "homebrew/services"
+tap "nikitabobko/tap"
+tap "wader/tap"
+tap "whatpulse/whatpulse"
 # Shell extension to jump to frequently used directories
 brew "autojump"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -15,10 +18,14 @@ brew "cloc"
 brew "cowsay"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Plays typewriter sounds every time you press a key
+brew "daktilo"
 # Display graphs and colors of file system space/usage
 brew "dfc"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
+# Like neofetch, but much faster because written mostly in C
+brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # User-friendly command-line shell for UNIX-like operating systems
@@ -71,6 +78,8 @@ brew "ncdu"
 brew "neofetch"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# No Nonsense Neovim Client in Rust
+brew "neovide"
 # Platform built on V8 to build network applications
 brew "node"
 # Tools for one-time password authentication systems
@@ -93,24 +102,32 @@ brew "tokei"
 brew "typos-cli"
 # Internet file retriever
 brew "wget"
+# Check your $HOME for unwanted files and directories
+brew "xdg-ninja", args: ["HEAD"]
+# A window border system for macOS
+brew "felixkratz/formulae/borders"
+# Custom macOS statusbar with shell plugin, interaction and graph support
+brew "felixkratz/formulae/sketchybar"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "aerospace"
 # Web browser focusing on privacy
 cask "brave-browser-beta"
 # Tool to show live information about the batteries in various devices
 cask "coconutbattery"
 # App to build and share containerised applications and microservices
 cask "docker"
-# European dictionary
+# English dictionary
 cask "eudic"
 # Web browser
 cask "firefox-developer-edition"
 # Screen colour temperature controller
 cask "flux"
-# Developer targeted fonts with a high number of glyphs
 cask "font-droid-sans-mono-nerd-font"
-# Open-source Chinese font derived from Fontworks' Klee One
 cask "font-lxgw-wenkai"
+cask "font-sf-mono"
+cask "font-sf-pro"
 # Web browser
 cask "google-chrome"
 # Note-taking tool for visual learning
@@ -125,12 +142,20 @@ cask "jetbrains-toolbox"
 cask "karabiner-elements"
 # GPU-based terminal emulator
 cask "kitty"
+# Orchestrates virtual Ubuntu instances
+cask "multipass"
 # HTTP client that helps testing and describing APIs
 cask "rapidapi"
 # Control your tools with a few keystrokes
 cask "raycast"
 # Time optimising application
 cask "rescuetime"
+# Tool that provides consistent, highly configurable symbols for apps
+cask "sf-symbols"
+# Screenshot measurement and annotation tool
+cask "shottr"
+# PDF reader and note-taking application
+cask "skim"
 # Rime input method engine
 cask "squirrel"
 # Break time reminder app
@@ -266,7 +291,6 @@ vscode "rog2.luacheck"
 vscode "rust-lang.rust-analyzer"
 vscode "ryu1kn.partial-diff"
 vscode "satoren.lualint"
-vscode "serayuzgur.crates"
 vscode "shd101wyy.markdown-preview-enhanced"
 vscode "sidneys1.gitconfig"
 vscode "simonsiefke.svg-preview"
