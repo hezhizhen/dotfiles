@@ -9,11 +9,7 @@ sync:
 	[ -f ~/.vimrc ]      || ln -s $(PWD)/.vimrc      ~/.vimrc
 	[ -f ~/.yabairc ]    || ln -s $(PWD)/.yabairc    ~/.yabairc
 
-	[ -f ~/.config/starship.toml ] || ln -s $(PWD)/.config/starship.toml ~/.config/starship.toml
-	[ -d ~/.config/alacritty ]     || ln -s $(PWD)/.config/alacritty     ~/.config
-	[ -d ~/.config/jrnl ]          || ln -s $(PWD)/.config/jrnl          ~/.config
-	[ -d ~/.config/nvim ]          || ln -s $(PWD)/.config/nvim          ~/.config/nvim
-	[ -d ~/.config/skhd ]          || ln -s $(PWD)/.config/skhd          ~/.config
+	[ -d ~/.config ] || ln -s $(PWD)/.config ~/.config
 
 clean:
 
@@ -24,11 +20,7 @@ clean:
 	rm -f ~/.vimrc
 	rm -f ~/.yabairc
 
-	rm -f ~/.config/starship.toml
-	rm -rf ~/.config/alacritty
-	rm -rf ~/.config/jrnl
-	rm -rf ~/.config/nvim
-	rm -rf ~/.config/skhd
+	rm -f ~/.config
 
 update: brew spell
 
