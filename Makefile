@@ -1,5 +1,32 @@
 all: sync
 
+define check_dir_and_link
+	@if [ -d $(2) ]; then \
+		if [ -L $(2) ]; then \
+			if [ "$$(readlink $(2))" = "$(1)" ]; then \
+				echo "Directory $(2) is already linked to $(1). Skipping..."; \
+			else \
+				echo "Directory $(2) is linked to $$(readlink $(2)). Aborting..."; \
+			fi; \
+		else \
+			mv $(1) $(1).bak; \
+			mv $(2) $(1); \
+			ln -s $(1) $(2); \
+		fi; \
+	else \
+		echo "Directory $(2) does not exist. Skipping..."; \
+	fi
+endef
+
+define check
+	echo $(1)
+	echo $(2)
+endef
+
+test:
+	$(call check,$$(pwd),$(HOME))
+	$(call check_dir_and_link,$$(pwd)/.config/alacritty,$(HOME)/.config/alacritty)
+
 sync:
 	[ -d ~/.doom.d ]     || ln -s $(PWD)/.doom.d     ~/.doom.d
 	[ -f ~/.finicky.js ] || ln -s $(PWD)/.finicky.js ~/.finicky.js
@@ -30,4 +57,4 @@ brew:
 spell:
 	typos
 
-.PHONY: all clean sync brew spell update
+.PHONY: all clean sync brew spell update test
