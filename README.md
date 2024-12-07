@@ -28,7 +28,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 :PlugInstall
 
 # install doom emacs
-git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+~/.config/emacs/bin/doom install
 ```
 
 ## Screenshots
