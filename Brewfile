@@ -1,20 +1,26 @@
 tap "ariga/tap"
 tap "buo/cask-upgrade"
+tap "d12frosted/emacs-plus"
 tap "felixkratz/formulae"
 tap "homebrew/bundle"
 tap "homebrew/services"
+tap "jesseduffield/lazygit"
 tap "nikitabobko/tap"
 tap "wader/tap"
 tap "whatpulse/whatpulse"
+# Improved shell history for zsh, bash, fish and nushell
+brew "atuin"
 # Shell extension to jump to frequently used directories
 brew "autojump"
+# Official Amazon AWS command-line interface
+brew "awscli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Arbitrary precision calculator
 brew "calc"
 # Statistics utility to count lines of code
 brew "cloc"
-# Configurable talking characters in ASCII art
+# Apjanke's fork of the classic cowsay project
 brew "cowsay"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
@@ -58,8 +64,6 @@ brew "icdiff"
 brew "jq"
 # Command-line note taker
 brew "jrnl"
-# Simple terminal UI for git commands
-brew "lazygit"
 # Rainbows and unicorns in your console!
 brew "lolcat"
 # Clone of ls with colorful output, file type icons, and more
@@ -72,6 +76,10 @@ brew "macvim"
 brew "mas"
 # Run a Kubernetes cluster locally
 brew "minikube"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
+# Media player based on MPlayer and mplayer2
+brew "mpv"
 # NCurses Disk Usage
 brew "ncdu"
 # Fast, highly customisable system info script
@@ -82,14 +90,28 @@ brew "neovim"
 brew "neovide"
 # Platform built on V8 to build network applications
 brew "node"
+# Retrieves currently playing media, and simulates media actions
+brew "nowplaying-cli"
 # Tools for one-time password authentication systems
 brew "oath-toolkit"
+# Modern Python package and dependency manager supporting the latest PEP standards
+brew "pdm"
+# Python package management tool
+brew "poetry"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Autoformat shell script source code
 brew "shfmt"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Log file highlighter
+brew "tailspin"
+# Command-line packet analyzer
+brew "tcpdump"
+# User interface to the TELNET protocol
+brew "telnet"
+# Terminal UI for tshark, inspired by Wireshark
+brew "termshark"
 # Code-search similar to ack
 brew "the_silver_searcher"
 # Text interface for Git repositories
@@ -104,10 +126,18 @@ brew "typos-cli"
 brew "wget"
 # Check your $HOME for unwanted files and directories
 brew "xdg-ninja", args: ["HEAD"]
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi", args: ["HEAD"]
+# Pluggable terminal workspace, with terminal multiplexer as the base feature
+brew "zellij"
+# GNU Emacs text editor
+brew "d12frosted/emacs-plus/emacs-plus@29", args: ["with-native-comp"]
 # A window border system for macOS
 brew "felixkratz/formulae/borders"
 # Custom macOS statusbar with shell plugin, interaction and graph support
 brew "felixkratz/formulae/sketchybar"
+# A simple terminal UI for git commands, written in Go
+brew "jesseduffield/lazygit/lazygit"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # AeroSpace is an i3-like tiling window manager for macOS
@@ -116,6 +146,8 @@ cask "aerospace"
 cask "brave-browser-beta"
 # Tool to show live information about the batteries in various devices
 cask "coconutbattery"
+# Write, edit, and chat about your code with AI
+cask "cursor"
 # App to build and share containerised applications and microservices
 cask "docker"
 # English dictionary
@@ -125,9 +157,11 @@ cask "firefox-developer-edition"
 # Screen colour temperature controller
 cask "flux"
 cask "font-droid-sans-mono-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
 cask "font-lxgw-wenkai"
 cask "font-sf-mono"
 cask "font-sf-pro"
+cask "font-symbols-only-nerd-font"
 # Web browser
 cask "google-chrome"
 # Note-taking tool for visual learning
@@ -144,12 +178,16 @@ cask "karabiner-elements"
 cask "kitty"
 # Orchestrates virtual Ubuntu instances
 cask "multipass"
+# Free and open-source RSS reader
+cask "netnewswire@beta"
 # HTTP client that helps testing and describing APIs
 cask "rapidapi"
 # Control your tools with a few keystrokes
 cask "raycast"
 # Time optimising application
 cask "rescuetime"
+# Hardware-accelerated GPU terminal emulator
+cask "rio"
 # Tool that provides consistent, highly configurable symbols for apps
 cask "sf-symbols"
 # Screenshot measurement and annotation tool
@@ -162,6 +200,8 @@ cask "squirrel"
 cask "stretchly"
 # Cloud video conferencing
 cask "tencent-meeting"
+# Virtual machines UI using QEMU
+cask "utm"
 # Open-source code editor
 cask "visual-studio-code"
 # Create, manage, and run virtual machines
@@ -170,6 +210,10 @@ cask "vmware-fusion"
 cask "wakatime"
 # Messaging and calling application
 cask "wechatwork"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
+# REST, GraphQL and gRPC client
+cask "yaak"
 # Multiplayer code editor
 cask "zed"
 mas "1Password for Safari", id: 1569813296
@@ -184,6 +228,7 @@ mas "Pages", id: 409201541
 mas "Playgrounds", id: 1496833156
 mas "Refined GitHub", id: 1519867270
 mas "Save to Raindrop.io", id: 1549370672
+mas "SnippetsLab", id: 1006087419
 mas "TestFlight", id: 899247664
 mas "Todoist", id: 585829637
 mas "Xcode", id: 497799835
@@ -301,7 +346,6 @@ vscode "stxr.iconfont-preview"
 vscode "stylelint.vscode-stylelint"
 vscode "sumneko.lua"
 vscode "tamasfe.even-better-toml"
-vscode "tensorchord.vscode-envd"
 vscode "tldraw-org.tldraw-vscode"
 vscode "tomoki1207.pdf"
 vscode "tootone.org-mode"
