@@ -1,5 +1,5 @@
 if vim.g.neovide then
-  vim.o.guifont = "DroidSansM Nerd Font:h16"
+  vim.o.guifont = "JetBrainsMono Nerd Font:h12"
   vim.opt.linespace = 0
   vim.g.neovide_padding_top = 0
   vim.g.neovide_padding_bottom = 0

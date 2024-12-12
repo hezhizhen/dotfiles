@@ -17,13 +17,6 @@ return {
       colorscheme = "onedark",
     },
   },
-  -- notify
-  {
-    "rcarriga/nvim-notify",
-    opts = {
-      background_colour = "#000000",
-    },
-  },
   -- bufferline
   {
     "akinsho/bufferline.nvim",
@@ -46,17 +39,6 @@ return {
     },
   },
   {
-    "lewis6991/gitsigns.nvim",
-    opts = {
-      current_line_blame = true,
-    },
-  },
-  {
-    "sindrets/diffview.nvim",
-    -- :DiffviewOpen to open left bar
-    -- :DiffviewFileHistory to open file history
-  },
-  {
     "numToStr/Comment.nvim",
     -- visual mode: gc - toggle line comment
   },
@@ -70,7 +52,7 @@ return {
     keys = {
       {
         -- 👇 choose your own keymapping
-        "<leader>-",
+        "<leader>fy",
         function()
           require("yazi").yazi()
         end,
@@ -103,5 +85,34 @@ return {
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
     },
+  },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
+
+      -- Only one of these is needed.
+      "nvim-telescope/telescope.nvim", -- optional
+      -- "ibhagwan/fzf-lua", -- optional
+      -- "echasnovski/mini.pick", -- optional
+    },
+    config = true,
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      current_line_blame = true,
+    },
+  },
+  {
+    "m4xshen/hardtime.nvim",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      require("hardtime").setup()
+    end,
   },
 }
