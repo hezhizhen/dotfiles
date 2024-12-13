@@ -5,3 +5,4 @@
 vim.opt.relativenumber = false
 vim.opt.tabstop = 4
 vim.opt.colorcolumn = "80,120"
+vim.opt.conceallevel = 0 -- no concealing by default
