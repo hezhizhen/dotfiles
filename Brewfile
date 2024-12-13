@@ -104,6 +104,8 @@ brew "ripgrep"
 brew "shfmt"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Change macOS audio source from the command-line
+brew "switchaudio-osx"
 # Log file highlighter
 brew "tailspin"
 # Command-line packet analyzer
@@ -122,6 +124,8 @@ brew "tldr"
 brew "tokei"
 # Source code spell checker
 brew "typos-cli"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
 # Internet file retriever
 brew "wget"
 # Check your $HOME for unwanted files and directories
@@ -216,6 +220,8 @@ cask "wezterm"
 cask "yaak"
 # Multiplayer code editor
 cask "zed"
+# Gecko based web browser
+cask "zen-browser"
 mas "1Password for Safari", id: 1569813296
 mas "AdGuard for Safari", id: 1440147259
 mas "DingTalk", id: 1435447041
@@ -326,7 +332,6 @@ vscode "ms-vscode.remote-repositories"
 vscode "ms-vscode.remote-server"
 vscode "ms-vscode.test-adapter-converter"
 vscode "naumovs.color-highlight"
-vscode "nexmoe.monitor-pro"
 vscode "nickgo.cuelang"
 vscode "nvarner.typst-lsp"
 vscode "pkief.material-icon-theme"
