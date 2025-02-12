@@ -40,7 +40,7 @@ These screenshots are stored in the [first issue][4] of this repository.
 
 ## CLIs
 
-[version.csv](./version.csv)
+![version.csv](./version.csv)
 
 [4]: https://github.com/hezhizhen/dotfiles/issues/1
 [5]: https://github.com/fatih/dotfiles/
