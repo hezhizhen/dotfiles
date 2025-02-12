@@ -38,5 +38,9 @@ These screenshots are stored in the [first issue][4] of this repository.
 
 ![desktop](https://github.com/user-attachments/assets/c6ac8278-5ec3-4a87-a0e0-d3bfc5ca8639)
 
+## CLIs
+
+[version.csv](./version.csv)
+
 [4]: https://github.com/hezhizhen/dotfiles/issues/1
 [5]: https://github.com/fatih/dotfiles/
