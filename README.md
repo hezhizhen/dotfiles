@@ -40,7 +40,17 @@ These screenshots are stored in the [first issue][4] of this repository.
 
 ## CLIs
 
-![version.csv](./version.csv)
+
+| CLI                                                   | Path                        | Version            |
+| ----------------------------------------------------- | --------------------------- | ------------------ |
+| [AeroSpace](https://github.com/nikitabobko/AeroSpace) | /opt/homebrew/bin/aerospace | 0.17.0-Beta        |
+| [fish](https://fishshell.com/)                        | /opt/homebrew/bin/fish      | 4.0b1              |
+| [Git](https://git-scm.com/)                           | /opt/homebrew/bin/git       | 2.48.1             |
+| [Homebrew](https://brew.sh/)                          | /opt/homebrew/bin/brew      | 4.4.21-31-gdf70c9f |
+| [Neovim](https://neovim.io/)                          | /opt/homebrew/bin/nvim      | 0.10.4             |
+| [typos](https://github.com/crate-ci/typos)            | /opt/homebrew/bin/typos     | 1.29.7             |
+| [Visual Studio Code](https://code.visualstudio.com/)  | /opt/homebrew/bin/code      | 1.97.2             |
+
 
 [4]: https://github.com/hezhizhen/dotfiles/issues/1
 [5]: https://github.com/fatih/dotfiles/
