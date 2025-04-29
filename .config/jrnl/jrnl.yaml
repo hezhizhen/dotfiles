@@ -5,15 +5,15 @@ colors:
   title: magenta
 default_hour: 9
 default_minute: 0
-editor: 'vim'
+editor: "nvim"
 encrypt: false
 highlight: true
-indent_character: '|'
+indent_character: "|"
 journals:
   default: ~/Dropbox/jrnl/all-in-one.txt
   todo: ~/Dropbox/jrnl/todo.txt
 linewrap: 80
-tagsymbols: '#@'
+tagsymbols: "#@"
 template: false
-timeformat: '%Y-%m-%d %H:%M'
-version: v3.2
+timeformat: "%Y-%m-%d %H:%M:%S"
+version: v4.2.1
