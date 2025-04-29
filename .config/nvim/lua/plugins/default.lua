@@ -17,27 +17,6 @@ return {
       colorscheme = "onedark",
     },
   },
-  -- bufferline
-  {
-    "akinsho/bufferline.nvim",
-    opts = {
-      options = {
-        numbers = "buffer_id",
-        always_show_bufferline = true,
-      },
-    },
-  },
-  -- neo-tree
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    opts = {
-      filesystem = {
-        filtered_items = {
-          visible = true,
-        },
-      },
-    },
-  },
   ---@type LazySpec
   {
     "mikavilpas/yazi.nvim",
@@ -73,14 +52,6 @@ return {
     config = function()
       require("log-highlight").setup({})
     end,
-  },
-  {
-    "folke/zen-mode.nvim",
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
   },
   {
     "NeogitOrg/neogit",
