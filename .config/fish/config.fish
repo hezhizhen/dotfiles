@@ -37,8 +37,19 @@ set PATH $GOPATH/bin $PATH
 set PATH ~/.cargo/bin $PATH
 
 # Tools
+# Atuin
+atuin init fish | source
 # Autojump
 [ -f /opt/homebrew/share/autojump/autojump.fish ]; and source /opt/homebrew/share/autojump/autojump.fish
+# Curl
+fish_add_path /opt/homebrew/opt/curl/bin
+# for compilers
+set -gx LDFLAGS -L/opt/homebrew/opt/curl/lib
+set -gx CPPFLAGS -I/opt/homebrew/opt/curl/include
+# for pkg-config
+set -gx PKG_CONFIG_PATH /opt/homebrew/opt/curl/lib/pkgconfig
+# WakaTime
+set PATH $PATH ~/.wakatime
 # Cheat
 export CHEATCOLORS=true
 # Kubernetes
@@ -49,3 +60,7 @@ starship init fish | source
 # Scripts
 set -gx SCRIPTSPATH $HOME/scripts
 set PATH $PATH $SCRIPTSPATH
+
+test -e {$HOME}/.iterm2_shell_integration.fish; and source {$HOME}/.iterm2_shell_integration.fish
+uv generate-shell-completion fish | source
+uvx --generate-shell-completion fish | source
