@@ -1,3 +1,6 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
 # os, directory, git info, languages, docker/kubernetes, time
 format = """
 [](#9A348E)\
