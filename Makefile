@@ -55,6 +55,9 @@ brew:
 	brew bundle dump --describe --force
 
 spell:
-	typos
+	typos --format=brief
+
+start-bukuserver:
+	BUKUSERVER_THEME=united BUKUSERVER_DISABLE_FAVICON=false BUKUSERVER_OPEN_IN_NEW_TAB=true bukuserver run --debug
 
 .PHONY: all clean sync brew spell update test
