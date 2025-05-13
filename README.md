@@ -40,7 +40,6 @@ These screenshots are stored in the [first issue][4] of this repository.
 
 ## CLIs
 
-
 | CLI                                                   | Path                        | Version            |
 | ----------------------------------------------------- | --------------------------- | ------------------ |
 | [AeroSpace](https://github.com/nikitabobko/AeroSpace) | /opt/homebrew/bin/aerospace | 0.17.0-Beta        |
@@ -51,6 +50,7 @@ These screenshots are stored in the [first issue][4] of this repository.
 | [typos](https://github.com/crate-ci/typos)            | /opt/homebrew/bin/typos     | 1.29.7             |
 | [Visual Studio Code](https://code.visualstudio.com/)  | /opt/homebrew/bin/code      | 1.97.2             |
 
+[CSV](version.csv)
 
 [4]: https://github.com/hezhizhen/dotfiles/issues/1
 [5]: https://github.com/fatih/dotfiles/
