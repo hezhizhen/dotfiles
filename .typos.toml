@@ -1,9 +1,10 @@
 [default.extend-words]
-ba = "ba"
+ba = "ba"                 # hash data
 Siduction = "Siduction"
-iterm = "iterm"         # iterm2
-Sur = "Sur"             # macOS Big Sur
-noice = "noice"         # Neovim plugin: https://github.com/folke/noice.nvim
+iterm = "iterm"           # iterm2
+Sur = "Sur"               # macOS Big Sur
+noice = "noice"           # Neovim plugin: https://github.com/folke/noice.nvim
+Automattic = "Automattic" # Pocket Casts
 [files]
 extend-exclude = [".git"]
 ignore-hidden = false
