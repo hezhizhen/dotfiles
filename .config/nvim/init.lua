@@ -5,8 +5,8 @@ if vim.g.neovide then
   vim.g.neovide_padding_bottom = 0
   vim.g.neovide_padding_left = 0
   vim.g.neovide_padding_right = 0
-  vim.g.neovide_transparency = 0.3
-  vim.g.transparency = 0.3
+  vim.g.neovide_opacity = 0.7
+  vim.g.transparency = 0.7
   vim.g.neovide_window_blurred = true
   vim.g.neovide_remember_window_size = true
   vim.g.neovide_input_macos_option_key_is_meta = "only_left"
