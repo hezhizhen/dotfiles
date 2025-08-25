@@ -13,7 +13,7 @@
 [credential]
     helper = store
 [core]
-    pager        = diff-so-fancy | less --tabs=4 -RFX
+    pager        = delta
     excludesfile = /Users/hezhizhen/.gitignore
 [color]
     ui = true
@@ -34,8 +34,12 @@
 [icdiff]
     options = --highlight --line-numbers
 [delta]
-    line-numbers = true
-    side-by-side = true
+    dark                        = true
+    line-numbers                = true
+    side-by-side                = true
+    navigate                    = true
+    hyperlinks                  = true
+    hyperlinks-file-link-format = "vscode://file/{path}:{line}"
 [pull]
     rebase = true
 [commit]
