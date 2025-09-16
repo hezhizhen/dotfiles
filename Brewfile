@@ -19,6 +19,8 @@ brew "bat"
 brew "buku"
 # Arbitrary precision calculator
 brew "calc"
+# CLI tool for analyzing Claude Code usage from local JSONL files
+brew "ccusage"
 # Statistics utility to count lines of code
 brew "cloc"
 # Apjanke's fork of the classic cowsay project
@@ -65,6 +67,10 @@ brew "icdiff"
 brew "jq"
 # Command-line note taker
 brew "jrnl"
+# Lazier way to manage everything docker
+brew "lazydocker"
+# Simple terminal UI for git commands
+brew "lazygit"
 # Rainbows and unicorns in your console!
 brew "lolcat"
 # Clone of ls with colorful output, file type icons, and more
@@ -97,10 +103,6 @@ brew "nowplaying-cli"
 brew "oath-toolkit"
 # Create, run, and share large language models (LLMs)
 brew "ollama", restart_service: :changed
-# Modern Python package and dependency manager supporting the latest PEP standards
-brew "pdm"
-# Python package management tool
-brew "poetry"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Autoformat shell script source code
@@ -134,7 +136,7 @@ brew "wget"
 # Check your $HOME for unwanted files and directories
 brew "xdg-ninja", args: ["HEAD"]
 # Blazing fast terminal file manager written in Rust, based on async I/O
-brew "yazi", args: ["HEAD"]
+brew "yazi"
 # Pluggable terminal workspace, with terminal multiplexer as the base feature
 brew "zellij"
 # GNU Emacs text editor
@@ -143,12 +145,10 @@ brew "d12frosted/emacs-plus/emacs-plus@29", args: ["with-native-comp"]
 brew "felixkratz/formulae/borders"
 # Custom macOS statusbar with shell plugin, interaction and graph support
 brew "felixkratz/formulae/sketchybar"
-# A simple terminal UI for docker, written in Go
-brew "jesseduffield/lazydocker/lazydocker"
-# A simple terminal UI for git commands, written in Go
-brew "jesseduffield/lazygit/lazygit"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
+# Command-line interface for 1Password
+cask "1password-cli"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "aerospace"
 # Enable Windows-like alt-tab
@@ -159,6 +159,8 @@ cask "blip"
 cask "brave-browser@beta"
 # AI chatbot for many LLMs
 cask "chatwise"
+# Terminal-based AI coding assistant
+cask "claude-code"
 # Tool to show live information about the batteries in various devices
 cask "coconutbattery"
 # Write, edit, and chat about your code with AI
@@ -168,13 +170,13 @@ cask "cyberduck"
 # API documentation browser and code snippet manager
 cask "dash"
 # App to build and share containerised applications and microservices
-cask "docker"
+cask "docker-desktop"
 # English dictionary
 cask "eudic"
 # Web browser
-cask "firefox-developer-edition"
+cask "firefox@developer-edition"
 # Screen colour temperature controller
-cask "flux"
+cask "flux-app"
 cask "font-droid-sans-mono-nerd-font"
 cask "font-fira-code-nerd-font"
 cask "font-iosevka-nerd-font"
@@ -185,6 +187,7 @@ cask "font-maple-mono-nf-cn"
 cask "font-sauce-code-pro-nerd-font"
 cask "font-sf-mono"
 cask "font-sf-pro"
+cask "font-sketchybar-app-font"
 cask "font-symbols-only-nerd-font"
 cask "font-ubuntu-mono-nerd-font"
 cask "font-ubuntu-nerd-font"
@@ -206,6 +209,8 @@ cask "jetbrains-toolbox"
 cask "karabiner-elements"
 # GPU-based terminal emulator
 cask "kitty"
+# Privacy-first, open-source platform for knowledge sharing and management
+cask "logseq"
 # Tool to control external monitor brightness & volume
 cask "monitorcontrol"
 # Orchestrates virtual Ubuntu instances
@@ -214,6 +219,8 @@ cask "multipass"
 cask "netnewswire@beta"
 # Calculator and converter application
 cask "numi"
+# GUI app and toolkit for Claude Code
+cask "opcode"
 # HTTP client that helps testing and describing APIs
 cask "rapidapi"
 # Control your tools with a few keystrokes
@@ -229,17 +236,15 @@ cask "shottr"
 # PDF reader and note-taking application
 cask "skim"
 # Rime input method engine
-cask "squirrel"
+cask "squirrel-app"
 # Break time reminder app
 cask "stretchly"
-# Cloud video conferencing
-cask "tencent-meeting"
 # Virtual machines UI using QEMU
 cask "utm"
 # Open-source code editor
 cask "visual-studio-code"
-# Create, manage, and run virtual machines
-cask "vmware-fusion"
+# Web browser with built-in email client focusing on customization and control
+cask "vivaldi"
 # System tray app for automatic time tracking
 cask "wakatime"
 # Rust-based terminal
@@ -248,6 +253,10 @@ cask "warp"
 cask "wechatwork"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
+# WhatPulse
+cask "whatpulse"
+# WhatPulse ChmodBPF Installer (required for networking stats)
+cask "whatpulse_chmodbpf"
 # REST, GraphQL and gRPC client
 cask "yaak"
 # Multiplayer code editor
