@@ -1,3 +1,4 @@
 CLI,Path,Version
-brew,/opt/homebrew/bin/brew,4.4.20-155-g2e211a5
-fish,/opt/homebrew/bin/fish,4.0b1
+brew,/opt/homebrew/bin/brew,4.6.11
+fish,/opt/homebrew/bin/fish,4.0.6
+nvim,/opt/homebrew/bin/nvim,0.11.4

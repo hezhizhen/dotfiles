@@ -1,6 +1,6 @@
 # dotfiles
 
-[![wakatime](https://wakatime.com/badge/user/9053a32c-e602-40ae-96b2-be7c43d90c66/project/018e1503-c7af-4ed1-8f23-e7a19646e9d3.svg)](https://wakatime.com/badge/user/9053a32c-e602-40ae-96b2-be7c43d90c66/project/018e1503-c7af-4ed1-8f23-e7a19646e9d3)
+[![wakatime](https://wakatime.com/badge/user/9053a32c-e602-40ae-96b2-be7c43d90c66/project/e8bbb08d-fa38-4d82-a14e-4ac629f43be9.svg)](https://wakatime.com/badge/user/9053a32c-e602-40ae-96b2-be7c43d90c66/project/e8bbb08d-fa38-4d82-a14e-4ac629f43be9)
 ![last commit](https://img.shields.io/github/last-commit/hezhizhen/dotfiles)
 
 This is the public version of my dotfiles.
@@ -40,15 +40,12 @@ These screenshots are stored in the [first issue][4] of this repository.
 
 ## CLIs
 
-| CLI                                                   | Path                        | Version            |
-| ----------------------------------------------------- | --------------------------- | ------------------ |
-| [AeroSpace](https://github.com/nikitabobko/AeroSpace) | /opt/homebrew/bin/aerospace | 0.17.0-Beta        |
-| [fish](https://fishshell.com/)                        | /opt/homebrew/bin/fish      | 4.0b1              |
-| [Git](https://git-scm.com/)                           | /opt/homebrew/bin/git       | 2.48.1             |
-| [Homebrew](https://brew.sh/)                          | /opt/homebrew/bin/brew      | 4.4.21-31-gdf70c9f |
-| [Neovim](https://neovim.io/)                          | /opt/homebrew/bin/nvim      | 0.10.4             |
-| [typos](https://github.com/crate-ci/typos)            | /opt/homebrew/bin/typos     | 1.29.7             |
-| [Visual Studio Code](https://code.visualstudio.com/)  | /opt/homebrew/bin/code      | 1.97.2             |
+| CLI                                                   | Path                        | Version     |
+| ----------------------------------------------------- | --------------------------- | ----------- |
+| [AeroSpace](https://github.com/nikitabobko/AeroSpace) | /opt/homebrew/bin/aerospace | 0.17.0-Beta |
+| [Git](https://git-scm.com/)                           | /opt/homebrew/bin/git       | 2.48.1      |
+| [typos](https://github.com/crate-ci/typos)            | /opt/homebrew/bin/typos     | 1.29.7      |
+| [Visual Studio Code](https://code.visualstudio.com/)  | /opt/homebrew/bin/code      | 1.97.2      |
 
 [CSV](version.csv)
 

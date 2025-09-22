@@ -55,7 +55,7 @@ brew:
 	brew bundle dump --describe --force
 
 spell:
-	typos --format=brief
+	typos --format=brief --hidden
 
 start-bukuserver:
 	BUKUSERVER_THEME=united BUKUSERVER_DISABLE_FAVICON=false BUKUSERVER_OPEN_IN_NEW_TAB=true bukuserver run --debug
