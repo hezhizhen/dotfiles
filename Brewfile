@@ -2,11 +2,16 @@ tap "ariga/tap"
 tap "buo/cask-upgrade"
 tap "d12frosted/emacs-plus"
 tap "felixkratz/formulae"
-tap "jesseduffield/lazydocker"
-tap "jesseduffield/lazygit"
 tap "nikitabobko/tap"
 tap "wader/tap"
+tap "warpdotdev/warp"
 tap "whatpulse/whatpulse"
+# Asciicast to GIF converter
+brew "agg"
+# Record and share terminal sessions
+brew "asciinema"
+# Code searching, linting, rewriting
+brew "ast-grep"
 # Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
 # Shell extension to jump to frequently used directories
@@ -41,6 +46,8 @@ brew "fd"
 brew "fish"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Interact with Google Gemini AI models from the command-line
+brew "gemini-cli"
 # GitHub command-line tool
 brew "gh"
 # Remote repository management made easy
@@ -57,16 +64,30 @@ brew "global"
 brew "gnu-sed"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Graph visualization software from AT&T and Bell Labs
+brew "graphviz"
+# Like cURL, but for gRPC
+brew "grpcurl"
+# Kubernetes package manager
+brew "helm"
 # Improved top (interactive process viewer)
 brew "htop"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
 # Improved colored diff
 brew "icdiff"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
+# Interactive computing in Python
+brew "ipython"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Command-line note taker
 brew "jrnl"
+# CLI agent for MoonshotAI Kimi platform
+brew "kimi-cli"
+# Save disk space by cleaning non-essential files from software projects
+brew "kondo"
 # Lazier way to manage everything docker
 brew "lazydocker"
 # Simple terminal UI for git commands
@@ -75,14 +96,16 @@ brew "lazygit"
 brew "lolcat"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
-# Powerful, clean, object-oriented scripting language
-brew "ruby"
 # GUI for vim, made for macOS
 brew "macvim"
 # Mac App Store command-line interface
 brew "mas"
 # Run a Kubernetes cluster locally
 brew "minikube"
+# Minimal CLI coding agent
+brew "mistral-vibe"
+# CLI tool for saving complete web pages as a single HTML file
+brew "monolith"
 # Feature-rich command-line audio/video downloader
 brew "yt-dlp"
 # Media player based on MPlayer and mplayer2
@@ -102,11 +125,33 @@ brew "nowplaying-cli"
 # Tools for one-time password authentication systems
 brew "oath-toolkit"
 # Create, run, and share large language models (LLMs)
-brew "ollama", restart_service: :changed
+brew "ollama"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# Autoformat shell script source code
-brew "shfmt"
+# AI coding agent, built for the terminal
+brew "opencode"
+# Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
+brew "prettier"
+# Fast type checker and IDE for Python
+brew "pyrefly"
+# AI-powered command-line workflow tool for developers
+brew "qwen-code"
+# Command-line deletion tool focused on safety, ergonomics, and performance
+brew "rm-improved"
+# Powerful, clean, object-oriented scripting language
+brew "ruby"
+# Extremely fast Python linter, written in Rust
+brew "ruff"
+# Rust toolchain installer
+brew "rustup"
+# Fast and accurate code counter with complexity and COCOMO estimates
+brew "scc"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# Work with remote images registries
+brew "skopeo"
+# SQL linter and auto-formatter for Humans
+brew "sqlfluff"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Change macOS audio source from the command-line
@@ -127,12 +172,22 @@ brew "tig"
 brew "tlrc"
 # Program that allows you to count code, quickly
 brew "tokei"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Parser generator tool
+brew "tree-sitter-cli"
+# Network diagnostic tool, inspired by mtr
+brew "trippy"
 # Source code spell checker
 brew "typos-cli"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
 # Internet file retriever
 brew "wget"
+# Lookup tool for domain names and other internet resources
+brew "whois"
+# Why is this running?
+brew "witr"
 # Check your $HOME for unwanted files and directories
 brew "xdg-ninja", args: ["HEAD"]
 # Blazing fast terminal file manager written in Rust, based on async I/O
@@ -151,18 +206,22 @@ cask "1password"
 cask "1password-cli"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "aerospace"
+# AI chat application
+cask "alma"
 # Enable Windows-like alt-tab
 cask "alt-tab"
 # Send any size file between devices
 cask "blip"
-# Web browser focusing on privacy
-cask "brave-browser@beta"
 # AI chatbot for many LLMs
 cask "chatwise"
 # Terminal-based AI coding assistant
 cask "claude-code"
 # Tool to show live information about the batteries in various devices
 cask "coconutbattery"
+# OpenAI's coding agent that runs in your terminal
+cask "codex"
+# Brings the power of Copilot coding agent directly to your terminal
+cask "copilot-cli@prerelease"
 # Write, edit, and chat about your code with AI
 cask "cursor"
 # Server and cloud storage browser
@@ -194,7 +253,7 @@ cask "font-ubuntu-nerd-font"
 cask "font-ubuntu-sans-nerd-font"
 cask "font-zed-mono-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
-cask "ghostty@tip"
+cask "ghostty"
 # Web browser
 cask "google-chrome"
 # Note-taking tool for visual learning
@@ -203,10 +262,22 @@ cask "heptabase"
 cask "iina"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# Enable generative AI features in iTerm2
+cask "itermai"
+# Enables an integrated web browser in iTerm2
+cask "itermbrowserplugin"
 # JetBrains tools manager
 cask "jetbrains-toolbox"
+# Open-source screen recorder built with web technology
+cask "kap"
 # Keyboard customiser
 cask "karabiner-elements"
+# File archiver
+cask "keka"
+# Open-source keystroke visualiser
+cask "keycastr"
+# Agent-centric IDE with spec-driven development
+cask "kiro"
 # GPU-based terminal emulator
 cask "kitty"
 # Privacy-first, open-source platform for knowledge sharing and management
@@ -215,10 +286,14 @@ cask "logseq"
 cask "monitorcontrol"
 # Orchestrates virtual Ubuntu instances
 cask "multipass"
+# Htop on steroids
+cask "neohtop"
 # Free and open-source RSS reader
-cask "netnewswire@beta"
+cask "netnewswire"
 # Calculator and converter application
 cask "numi"
+# Verify system files structure, run miscellaneous maintenance and more
+cask "onyx"
 # GUI app and toolkit for Claude Code
 cask "opcode"
 # HTTP client that helps testing and describing APIs
@@ -227,8 +302,8 @@ cask "rapidapi"
 cask "raycast"
 # Time optimising application
 cask "rescuetime"
-# Hardware-accelerated GPU terminal emulator
-cask "rio"
+# Tool to reverse the direction of scrolling
+cask "scroll-reverser"
 # Tool that provides consistent, highly configurable symbols for apps
 cask "sf-symbols"
 # Screenshot measurement and annotation tool
@@ -271,8 +346,6 @@ mas "Irvue", id: 1039633667
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Refined GitHub", id: 1519867270
-mas "Save to Raindrop.io", id: 1549370672
 mas "SnippetsLab", id: 1006087419
 mas "Swift Playground", id: 1496833156
 mas "TestFlight", id: 899247664
