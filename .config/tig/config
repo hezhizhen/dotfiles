@@ -1,0 +1,106 @@
+set diff-highlight = /opt/homebrew/share/git-core/contrib/diff-highlight/diff-highlight
+set ignore-case = smart-case
+set main-view = \
+    line-number:no \
+    id:yes,width=8 \
+    date:custom,local=yes,use-author=no,format="%Y-%m-%d %H:%M" \
+    author:full,width=0,maxwidth=16 \
+    committer:full,width=0,maxwidth=16 \
+    commit-title:yes,graph=v2,refs=yes,overflow=no
+set line-graphics = utf-8
+set truncation-delimiter = utf-8
+set commit-order = auto
+set git-colors = no
+set wrap-lines = yes
+set diff-view-line-number = no
+set vertical-split = no
+set diff-context = 5
+set start-on-head = yes
+set recurse-tree = yes
+
+# Palette adapted from https://github.com/ninjabreakbot/tig-gruvbox
+# Indexed colors keep the palette independent of the terminal's ANSI theme.
+color default              color246 color235
+color cursor               color223 color236 bold
+color cursor-blur          color246 color236
+color status               default  default
+color title-focus          color223 color239 bold
+color title-blur           color245 color236
+color delimiter            color142 default
+color header               color66  default bold
+color section              color172 default
+color line-number          color241 default
+color id                   color214 default
+color date                 color245 default
+color author               color109 default
+color committer            color132 default
+color mode                 color166 default
+color overflow             color241 default
+color directory            color106 default bold
+color file                 color223 default
+color file-size            default  default
+
+color graph-commit         color166 default
+color main-commit          default  default
+color main-head            color166 default bold
+color main-remote          color172 default
+color main-tracked         color132 default
+color main-tag             color223 default
+color main-local-tag       color106 default
+color main-ref             color72  default
+
+color status.header        color172 color236 bold
+color status.section       color214 default
+color stat-staged          color106 default
+color stat-unstaged        color124 default
+color stat-untracked       color166 default
+color stat-none            default  default
+
+color help.header          color241 default bold
+color help.section         color166 default
+color help.cursor          color72  color236
+color help-group           color166 default
+color help-action           color166 default
+
+color "commit "             default  default
+color "Refs: "              default  default
+color "Author: "            color109 default
+color "AuthorDate: "        color245 default
+color "Commit: "            color132 default
+color "CommitDate: "        color245 default
+color "Merge: "             default  default
+color "---"                 color167 default
+color "+++ "                color142 default
+color "--- "                color167 default
+color diff-index           default  default
+color diff-stat            color223 default
+color diff-add             color142 default
+color diff-add-highlight   color235 color142 bold
+color diff-del             color167 default
+color diff-del-highlight   color235 color167 bold
+color diff-header          color132 default
+color diff-chunk           color109 default
+color "diff-tree "          color214 default
+color "TaggerDate: "        default  default
+color "Date: "              color72  default
+color "gpg: "               color72  default
+color "Primary key fingerprint: " color72 default
+
+color grep.file            color208 default bold
+color grep.line-number     color241 default bold
+color grep.delimiter       color241 default bold
+
+color palette-0            color166 default bold
+color palette-1            color66  default bold
+color palette-2            color172 default bold
+color palette-3            color132 default bold
+color palette-4            color72  default bold
+color palette-5            color106 default bold
+color palette-6            color124 default bold
+color palette-7            color250 default bold
+color palette-8            color166 default
+color palette-9            color66  default
+color palette-10           color172 default
+color palette-11           color132 default
+color palette-12           color72  default
+color palette-13           color106 default
