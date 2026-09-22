@@ -5,7 +5,7 @@ tap "felixkratz/formulae"
 tap "nikitabobko/tap"
 tap "wader/tap"
 tap "warpdotdev/warp"
-tap "whatpulse/whatpulse"
+tap "whatpulse/whatpulse", trusted: true
 # Asciicast to GIF converter
 brew "agg"
 # Record and share terminal sessions
@@ -46,8 +46,6 @@ brew "fd"
 brew "fish"
 # Command-line fuzzy finder written in Go
 brew "fzf"
-# Interact with Google Gemini AI models from the command-line
-brew "gemini-cli"
 # GitHub command-line tool
 brew "gh"
 # Remote repository management made easy
@@ -62,8 +60,8 @@ brew "git-lfs"
 brew "global"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
-# Open source programming language to build simple/reliable/efficient software
-brew "go"
+# Task is a task runner/build tool that aims to be simpler and easier to use
+brew "go-task"
 # Graph visualization software from AT&T and Bell Labs
 brew "graphviz"
 # Like cURL, but for gRPC
@@ -76,7 +74,7 @@ brew "htop"
 brew "httpie"
 # Improved colored diff
 brew "icdiff"
-# Tools and libraries to manipulate images in many formats
+# Tools and libraries to manipulate images in select formats
 brew "imagemagick"
 # Interactive computing in Python
 brew "ipython"
@@ -84,8 +82,6 @@ brew "ipython"
 brew "jq"
 # Command-line note taker
 brew "jrnl"
-# CLI agent for MoonshotAI Kimi platform
-brew "kimi-cli"
 # Save disk space by cleaning non-essential files from software projects
 brew "kondo"
 # Lazier way to manage everything docker
@@ -102,6 +98,8 @@ brew "macvim"
 brew "mas"
 # Run a Kubernetes cluster locally
 brew "minikube"
+# Polyglot runtime manager (asdf rust clone)
+brew "mise"
 # Minimal CLI coding agent
 brew "mistral-vibe"
 # CLI tool for saving complete web pages as a single HTML file
@@ -205,15 +203,13 @@ cask "1password"
 # Command-line interface for 1Password
 cask "1password-cli"
 # AeroSpace is an i3-like tiling window manager for macOS
-cask "aerospace"
+cask "nikitabobko/tap/aerospace"
 # AI chat application
 cask "alma"
 # Enable Windows-like alt-tab
 cask "alt-tab"
 # Send any size file between devices
 cask "blip"
-# AI chatbot for many LLMs
-cask "chatwise"
 # Terminal-based AI coding assistant
 cask "claude-code"
 # Tool to show live information about the batteries in various devices
@@ -266,6 +262,8 @@ cask "iterm2"
 cask "itermai"
 # Enables an integrated web browser in iTerm2
 cask "itermbrowserplugin"
+# Pairs iTerm2 with the iTerm2 Companion iPhone app
+cask "itermcompanion"
 # JetBrains tools manager
 cask "jetbrains-toolbox"
 # Open-source screen recorder built with web technology
