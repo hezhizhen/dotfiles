@@ -1,5 +1,5 @@
 tap "ariga/tap"
-tap "buo/cask-upgrade"
+tap "buo/cask-upgrade", trusted: true
 tap "d12frosted/emacs-plus"
 tap "felixkratz/formulae"
 tap "nikitabobko/tap"
@@ -38,12 +38,16 @@ brew "daktilo"
 brew "dfc"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
+# Disk Usage/Free Utility - a better 'df' alternative
+brew "duf"
 # Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # User-friendly command-line shell for UNIX-like operating systems
 brew "fish"
+# Terminal JSON viewer
+brew "fx"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GitHub command-line tool
@@ -82,6 +86,8 @@ brew "ipython"
 brew "jq"
 # Command-line note taker
 brew "jrnl"
+# AI coding agent for your terminal
+brew "kimi-code"
 # Save disk space by cleaning non-essential files from software projects
 brew "kondo"
 # Lazier way to manage everything docker
@@ -92,6 +98,8 @@ brew "lazygit"
 brew "lolcat"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
+# Apple Silicon Monitor Top written in Go Lang
+brew "mactop"
 # GUI for vim, made for macOS
 brew "macvim"
 # Mac App Store command-line interface
@@ -102,6 +110,8 @@ brew "minikube"
 brew "mise"
 # Minimal CLI coding agent
 brew "mistral-vibe"
+# Deep clean and optimize your Mac
+brew "mole"
 # CLI tool for saving complete web pages as a single HTML file
 brew "monolith"
 # Feature-rich command-line audio/video downloader
@@ -128,6 +138,8 @@ brew "ollama"
 brew "ripgrep"
 # AI coding agent, built for the terminal
 brew "opencode"
+# AI agent toolkit
+brew "pi-coding-agent"
 # Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
 brew "prettier"
 # Fast type checker and IDE for Python
@@ -168,6 +180,10 @@ brew "the_silver_searcher"
 brew "tig"
 # Official tldr client written in Rust
 brew "tlrc"
+# AI-powered, non-intrusive terminal assistant
+brew "tmuxai"
+# Official command-line interface for Todoist
+brew "todoist-cli"
 # Program that allows you to count code, quickly
 brew "tokei"
 # Display directories as trees (with optional color/HTML output)
@@ -208,10 +224,18 @@ cask "nikitabobko/tap/aerospace"
 cask "alma"
 # Enable Windows-like alt-tab
 cask "alt-tab"
+# Display management tool
+cask "betterdisplay"
 # Send any size file between devices
 cask "blip"
+# OpenAI's official ChatGPT desktop app
+cask "chatgpt"
+# Anthropic's official Claude AI desktop app
+cask "claude"
 # Terminal-based AI coding assistant
 cask "claude-code"
+# Ghostty-based terminal with vertical tabs and notifications for AI coding agents
+cask "cmux"
 # Tool to show live information about the batteries in various devices
 cask "coconutbattery"
 # OpenAI's coding agent that runs in your terminal
@@ -220,6 +244,8 @@ cask "codex"
 cask "copilot-cli@prerelease"
 # Write, edit, and chat about your code with AI
 cask "cursor"
+# Command-line agent for Cursor
+cask "cursor-cli"
 # Server and cloud storage browser
 cask "cyberduck"
 # API documentation browser and code snippet manager
@@ -254,6 +280,10 @@ cask "ghostty"
 cask "google-chrome"
 # Note-taking tool for visual learning
 cask "heptabase"
+# Desktop automation application
+cask "hammerspoon"
+# Homebrew's official GUI
+cask "homebrew-app"
 # Free and open-source media player
 cask "iina"
 # Terminal emulator as alternative to Apple's Terminal app
@@ -276,6 +306,8 @@ cask "keka"
 cask "keycastr"
 # Agent-centric IDE with spec-driven development
 cask "kiro"
+# AI-powered productivity tool for the command-line
+cask "kiro-cli"
 # GPU-based terminal emulator
 cask "kitty"
 # Privacy-first, open-source platform for knowledge sharing and management
@@ -290,12 +322,16 @@ cask "neohtop"
 cask "netnewswire"
 # Calculator and converter application
 cask "numi"
+# Tiling window manager
+cask "omniwm"
 # Verify system files structure, run miscellaneous maintenance and more
 cask "onyx"
 # GUI app and toolkit for Claude Code
 cask "opcode"
 # HTTP client that helps testing and describing APIs
 cask "rapidapi"
+# Self-hosted daemon for AI coding agents
+cask "paseo"
 # Control your tools with a few keystrokes
 cask "raycast"
 # Time optimising application
@@ -312,6 +348,10 @@ cask "skim"
 cask "squirrel-app"
 # Break time reminder app
 cask "stretchly"
+# Quicklook extension for source files
+cask "syntax-highlight"
+# To-do list
+cask "todoist-app"
 # Virtual machines UI using QEMU
 cask "utm"
 # Open-source code editor
@@ -326,16 +366,12 @@ cask "warp"
 cask "wechatwork"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
-# WhatPulse
-cask "whatpulse"
-# WhatPulse ChmodBPF Installer (required for networking stats)
-cask "whatpulse_chmodbpf"
 # REST, GraphQL and gRPC client
 cask "yaak"
 # Multiplayer code editor
 cask "zed"
 # Gecko based web browser
-cask "zen-browser"
+cask "zen"
 mas "1Password for Safari", id: 1569813296
 mas "AdGuard for Safari", id: 1440147259
 mas "GarageBand", id: 682658836
@@ -347,5 +383,4 @@ mas "Pages", id: 409201541
 mas "SnippetsLab", id: 1006087419
 mas "Swift Playground", id: 1496833156
 mas "TestFlight", id: 899247664
-mas "Todoist", id: 585829637
 mas "Xcode", id: 497799835
