@@ -1,0 +1,89 @@
+version: "3"
+
+silent: true
+
+tasks:
+  default:
+    summary: |
+      列出可用任务及其简要说明。
+
+      用法：
+        task
+        task --list
+        task --summary <任务名>
+
+      示例：
+        task --summary compare
+
+      -h / --help 显示 Task 自身的帮助；--summary 显示指定任务的说明。
+    cmds:
+      - task --list
+
+  compare:
+    desc: Compare configuration files in VS Code
+    summary: |
+      用 VS Code 逐个对比下方清单中的文件。
+      左侧为仓库文件，右侧为 home 下相同相对路径的文件。
+      本机文件缺失时，提示并打开仓库文件。
+
+      用法：
+        task compare
+
+      修改下方 for 清单即可添加或移除文件。
+    cmds:
+      - for:
+          - .config/alacritty/alacritty.yml
+          - .config/doom/config.el
+          - .config/doom/init.el
+          - .config/doom/packages.el
+          - .config/fish/config.fish
+          - .config/fish/fish_variables
+          - .config/fish/functions/fetch-upstream.fish
+          - .config/fish/functions/fish_greeting.fish
+          - .config/fish/functions/set-upstream.fish
+          - .config/jrnl/jrnl.yaml
+          - .config/neofetch/config.conf
+          - .config/nvim/init.lua
+          - .config/nvim/init.vim.bak
+          - .config/nvim/lazy-lock.json
+          - .config/nvim/lazyvim.json
+          - .config/nvim/lua/config/autocmds.lua
+          - .config/nvim/lua/config/keymaps.lua
+          - .config/nvim/lua/config/lazy.lua
+          - .config/nvim/lua/config/options.lua
+          - .config/nvim/lua/plugins/default.lua
+          - .config/nvim/stylua.toml
+          - .config/skhd/skhdrc
+          - .config/starship.toml
+          - .config/tig/config
+          - .finicky.js
+          - .gitconfig
+          - .tmux.conf
+          - .vimrc
+          - .yabairc
+        cmd: |
+          local_file="$HOME/{{.ITEM}}"
+          if [ -f "$local_file" ]; then
+            code --diff "{{.ITEM}}" "$local_file"
+          else
+            printf '∅ 本地不存在：%s\n' "$local_file"
+            code "{{.ITEM}}"
+          fi
+
+  spell:
+    desc: Check spelling in repository files
+    summary: |
+      使用 typos 检查仓库文件中的拼写，包括隐藏文件。
+
+      用法：
+        task spell
+
+      依赖：
+        brew install typos-cli
+
+      按照仓库的 .typos.toml 配置执行检查，发现拼写问题时任务失败。
+    preconditions:
+      - sh: command -v typos >/dev/null 2>&1
+        msg: Install typos with brew install typos-cli.
+    cmds:
+      - typos --format=brief --hidden

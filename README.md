@@ -18,8 +18,8 @@ Credit to @fatih and his [dotfiles][5]
 # install all brew dependencies
 brew bundle
 
-# copy dotfiles to the appropriate places
-make
+# compare repository configurations with local files
+task compare
 
 # install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
