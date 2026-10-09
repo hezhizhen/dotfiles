@@ -63,6 +63,9 @@ tasks:
         task compare
 
       切换工具时，将相关路径在 ACTIVE_FILES 与 INACTIVE_FILES 之间移动。
+    preconditions:
+      - sh: command -v code >/dev/null 2>&1
+        msg: 请将 VS Code 的 code 命令加入 PATH。
     cmds:
       - for: {var: ACTIVE_FILES}
         cmd: |
