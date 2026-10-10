@@ -20,16 +20,6 @@ brew bundle
 
 # compare repository configurations with local files
 task compare
-
-# install vim-plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# open vim and install all plugins
-:PlugInstall
-
-# install doom emacs
-git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
-~/.config/emacs/bin/doom install
 ```
 
 ## Screenshots
@@ -41,18 +31,6 @@ These screenshots are stored in the [first issue][4] of this repository.
 ### tig
 
 ![tig](https://github.com/user-attachments/assets/b3176261-38b1-4ffa-b58b-d853dae0b933)
-
-
-## CLIs
-
-| CLI                                                   | Path                        | Version     |
-| ----------------------------------------------------- | --------------------------- | ----------- |
-| [AeroSpace](https://github.com/nikitabobko/AeroSpace) | /opt/homebrew/bin/aerospace | 0.17.0-Beta |
-| [Git](https://git-scm.com/)                           | /opt/homebrew/bin/git       | 2.48.1      |
-| [typos](https://github.com/crate-ci/typos)            | /opt/homebrew/bin/typos     | 1.29.7      |
-| [Visual Studio Code](https://code.visualstudio.com/)  | /opt/homebrew/bin/code      | 1.97.2      |
-
-[CSV](version.csv)
 
 [4]: https://github.com/hezhizhen/dotfiles/issues/1
 [5]: https://github.com/fatih/dotfiles/

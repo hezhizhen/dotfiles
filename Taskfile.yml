@@ -129,3 +129,12 @@ tasks:
         msg: Install typos with brew install typos-cli.
     cmds:
       - typos --format=brief --hidden
+
+  start-bukuserver:
+    desc: Start buku web server
+    env:
+      BUKUSERVER_THEME: united
+      BUKUSERVER_DISABLE_FAVICON: "false"
+      BUKUSERVER_OPEN_IN_NEW_TAB: "true"
+    cmds:
+      - bukuserver run --debug
