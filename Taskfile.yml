@@ -84,15 +84,6 @@ vars:
         version: tmux -V
         files:
           - .tmux.conf
-      vim:
-        website: https://www.vim.org/
-        github: https://github.com/vim/vim
-        version: >-
-          LC_ALL=C vim --version | awk '/^VIM/ {version=$5}
-          /^Included patches:/ {patch=$0; sub(/^.*[^0-9]/, "", patch); version=sprintf("%s.%04d", version, patch)}
-          END {print version}'
-        files:
-          - .vimrc
       yabai:
         website: https://github.com/koekeishiya/yabai/wiki
         github: https://github.com/koekeishiya/yabai
@@ -104,6 +95,9 @@ vars:
       finicky:
         website: https://johnste.github.io/finicky/
         github: https://github.com/johnste/finicky
+      vim:
+        website: https://www.vim.org/
+        github: https://github.com/vim/vim
 
 tasks:
   default:
