@@ -94,7 +94,7 @@ set smarttab
 set autoindent
 set smartindent
 set cindent
-set shiftwidth=4 
+set shiftwidth=4
 set tabstop=4     " number of visual spaces per TAB
 set softtabstop=4 " number of spaces in tab when editing
 
@@ -121,7 +121,8 @@ let g:onedark_termcolors=256
 colorscheme onedark
 if has("gui_running")
     " gui part (macvim) :he guicursor
-    set guifont=DroidSansMono\ Nerd\ Font:h12
+    set guifont=DroidSansMNF:h12
+    set guifontwide=LXGW\ WenKai\ Mono:h12
     "set guifontwide=Sarasa\ Mono\ SC:h12
     set guicursor=n-v-c:ver25
     set guioptions-=L " hide scroll bar on the left
@@ -525,9 +526,9 @@ let g:Lf_PreviewInPopup = 1
 
 " vim-startify
 let g:startify_bookmarks = [
-    \ {'c': '~/.vimrc'}, 
+    \ {'c': '~/.vimrc'},
     \ {'a': '~/.config/alacritty/alacritty.yml'},
-    \ {'f': '~/.config/fish/config.fish'}, 
+    \ {'f': '~/.config/fish/config.fish'},
     \ {'z': '~/.zshrc'},
     \ ]
 let g:startify_commands = [
