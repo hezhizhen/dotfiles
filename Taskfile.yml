@@ -3,92 +3,127 @@ version: "3"
 silent: true
 
 vars:
-  ACTIVE_FILES:
-    - .config/alacritty/alacritty.yml
-    - .config/doom/config.el
-    - .config/doom/init.el
-    - .config/doom/packages.el
-    - .config/fish/config.fish
-    - .config/fish/fish_variables
-    - .config/fish/functions/fetch-upstream.fish
-    - .config/fish/functions/fish_greeting.fish
-    - .config/fish/functions/set-upstream.fish
-    - .config/jrnl/jrnl.yaml
-    - .config/neofetch/config.conf
-    - .config/nvim/init.lua
-    - .config/nvim/init.vim.bak
-    - .config/nvim/lazy-lock.json
-    - .config/nvim/lazyvim.json
-    - .config/nvim/lua/config/autocmds.lua
-    - .config/nvim/lua/config/keymaps.lua
-    - .config/nvim/lua/config/lazy.lua
-    - .config/nvim/lua/config/options.lua
-    - .config/nvim/lua/plugins/default.lua
-    - .config/nvim/stylua.toml
-    - .config/skhd/skhdrc
-    - .config/starship.toml
-    - .config/tig/config
-    - .finicky.js
-    - .gitconfig
-    - .tmux.conf
-    - .vimrc
-    - .yabairc
-  INACTIVE_FILES: []
+  ACTIVE_TOOLS:
+    map:
+      alacritty:
+        version: alacritty --version
+        files:
+          - .config/alacritty/alacritty.yml
+      doom:
+        version: test -e "$HOME/.config/emacs/.git" && git -C "$HOME/.config/emacs" rev-parse --short HEAD
+        files:
+          - .config/doom/config.el
+          - .config/doom/init.el
+          - .config/doom/packages.el
+      fish:
+        version: fish --version
+        files:
+          - .config/fish/config.fish
+          - .config/fish/fish_variables
+          - .config/fish/functions/fetch-upstream.fish
+          - .config/fish/functions/fish_greeting.fish
+          - .config/fish/functions/set-upstream.fish
+      jrnl:
+        version: jrnl --version
+        files:
+          - .config/jrnl/jrnl.yaml
+      neofetch:
+        version: neofetch --version
+        files:
+          - .config/neofetch/config.conf
+      nvim:
+        version: nvim --version
+        files:
+          - .config/nvim/init.lua
+          - .config/nvim/lazy-lock.json
+          - .config/nvim/lazyvim.json
+          - .config/nvim/lua/config/autocmds.lua
+          - .config/nvim/lua/config/keymaps.lua
+          - .config/nvim/lua/config/lazy.lua
+          - .config/nvim/lua/config/options.lua
+          - .config/nvim/lua/plugins/default.lua
+          - .config/nvim/stylua.toml
+      skhd:
+        version: skhd --version
+        files:
+          - .config/skhd/skhdrc
+      starship:
+        version: starship --version
+        files:
+          - .config/starship.toml
+      tig:
+        version: tig --version
+        files:
+          - .config/tig/config
+      git:
+        version: git --version
+        files:
+          - .gitconfig
+      tmux:
+        version: tmux -V
+        files:
+          - .tmux.conf
+      vim:
+        version: >-
+          LC_ALL=C vim --version | awk '/^VIM/ {version=$5}
+          /^Included patches:/ {patch=$0; sub(/^.*[^0-9]/, "", patch); version=sprintf("%s.%04d", version, patch)}
+          END {print version}'
+        files:
+          - .vimrc
+      yabai:
+        version: yabai --version
+        files:
+          - .yabairc
+  INACTIVE_TOOLS:
+    - finicky
 
 tasks:
   default:
-    summary: |
-      列出可用任务及其简要说明。
-
-      用法：
-        task
-        task --list
-        task --summary <任务名>
-
-      示例：
-        task --summary compare
-
-      -h / --help 显示 Task 自身的帮助；--summary 显示指定任务的说明。
     cmds:
       - task --list
 
   compare:
     desc: Compare configuration files in VS Code
     summary: |
-      用 VS Code 逐个对比 ACTIVE_FILES 中的文件。
-      左侧为仓库文件，右侧为 home 下相同相对路径的文件。
+      用 VS Code 对比 active 配置，左侧为仓库文件，右侧为 home 下相同路径的文件。
       本机文件缺失时，提示并打开仓库文件。
-
-      用法：
-        task compare
-
-      切换工具时，将相关路径在 ACTIVE_FILES 与 INACTIVE_FILES 之间移动。
     preconditions:
       - sh: command -v code >/dev/null 2>&1
         msg: 请将 VS Code 的 code 命令加入 PATH。
     cmds:
-      - for: {var: ACTIVE_FILES}
+      - for: {var: ACTIVE_TOOLS}
         cmd: |
-          local_file="$HOME/{{.ITEM}}"
+          {{range .ITEM.files}}
+          local_file="$HOME/{{.}}"
           if [ -f "$local_file" ]; then
-            code --diff "{{.ITEM}}" "$local_file"
+            code --diff "{{.}}" "$local_file"
           else
             printf '∅ 本地不存在：%s\n' "$local_file"
-            code "{{.ITEM}}"
+            code "{{.}}"
           fi
+          {{end}}
+
+  versions:
+    desc: Record versions of active tools
+    summary: |
+      将 active 工具的版本写入 version.csv，未获取到版本时标记为 ∅。
+    cmds:
+      - |
+        snapshot=$(mktemp version.csv.XXXXXX)
+        trap 'rm -f "$snapshot"' EXIT
+        {
+          printf 'Tool,Version\n'
+          {{range $name, $tool := .ACTIVE_TOOLS}}
+          version_output=$({ {{$tool.version}}; } 2>/dev/null) || version_output=
+          version_value=$(printf '%s\n' "${version_output:-∅}" | sed -nE '1{s/^[^0-9]*([0-9]+(\.[0-9]+)+[[:alnum:].+-]*).*/\1/;s/"/""/g;p;}')
+          printf '"%s","%s"\n' "{{$name}}" "$version_value"
+          {{end}}
+        } > "$snapshot"
+        mv "$snapshot" version.csv
+        printf '已更新 version.csv\n'
 
   spell:
     desc: Check spelling in repository files
-    summary: |
-      使用 typos 检查仓库文件中的拼写，包括隐藏文件。
-
-      用法：
-        task spell
-
-      依赖：
-        brew install typos-cli
-
-      按照仓库的 .typos.toml 配置执行检查，发现拼写问题时任务失败。
     preconditions:
       - sh: command -v typos >/dev/null 2>&1
         msg: Install typos with brew install typos-cli.
