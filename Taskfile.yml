@@ -6,16 +6,22 @@ vars:
   ACTIVE_TOOLS:
     map:
       alacritty:
+        website: https://alacritty.org/
+        github: https://github.com/alacritty/alacritty
         version: alacritty --version
         files:
           - .config/alacritty/alacritty.yml
       doom:
+        website: https://doomemacs.org/
+        github: https://github.com/doomemacs/core
         version: test -e "$HOME/.config/emacs/.git" && git -C "$HOME/.config/emacs" rev-parse --short HEAD
         files:
           - .config/doom/config.el
           - .config/doom/init.el
           - .config/doom/packages.el
       fish:
+        website: https://fishshell.com/
+        github: https://github.com/fish-shell/fish-shell
         version: fish --version
         files:
           - .config/fish/config.fish
@@ -24,14 +30,20 @@ vars:
           - .config/fish/functions/fish_greeting.fish
           - .config/fish/functions/set-upstream.fish
       jrnl:
+        website: https://jrnl.sh/
+        github: https://github.com/jrnl-org/jrnl
         version: jrnl --version
         files:
           - .config/jrnl/jrnl.yaml
       neofetch:
+        website: https://github.com/dylanaraps/neofetch/wiki
+        github: https://github.com/dylanaraps/neofetch
         version: neofetch --version
         files:
           - .config/neofetch/config.conf
       nvim:
+        website: https://neovim.io/
+        github: https://github.com/neovim/neovim
         version: nvim --version
         files:
           - .config/nvim/init.lua
@@ -44,26 +56,37 @@ vars:
           - .config/nvim/lua/plugins/default.lua
           - .config/nvim/stylua.toml
       skhd:
+        github: https://github.com/asmvik/skhd
         version: skhd --version
         files:
           - .config/skhd/skhdrc
       starship:
+        website: https://starship.rs/
+        github: https://github.com/starship/starship
         version: starship --version
         files:
           - .config/starship.toml
       tig:
+        website: https://jonas.github.io/tig/
+        github: https://github.com/jonas/tig
         version: tig --version
         files:
           - .config/tig/config
       git:
+        website: https://git-scm.com/
+        github: https://github.com/git/git
         version: git --version
         files:
           - .gitconfig
       tmux:
+        website: https://github.com/tmux/tmux/wiki
+        github: https://github.com/tmux/tmux
         version: tmux -V
         files:
           - .tmux.conf
       vim:
+        website: https://www.vim.org/
+        github: https://github.com/vim/vim
         version: >-
           LC_ALL=C vim --version | awk '/^VIM/ {version=$5}
           /^Included patches:/ {patch=$0; sub(/^.*[^0-9]/, "", patch); version=sprintf("%s.%04d", version, patch)}
@@ -71,11 +94,16 @@ vars:
         files:
           - .vimrc
       yabai:
+        website: https://github.com/koekeishiya/yabai/wiki
+        github: https://github.com/koekeishiya/yabai
         version: yabai --version
         files:
           - .yabairc
   INACTIVE_TOOLS:
-    - finicky
+    map:
+      finicky:
+        website: https://johnste.github.io/finicky/
+        github: https://github.com/johnste/finicky
 
 tasks:
   default:
