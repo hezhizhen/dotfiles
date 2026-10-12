@@ -1,6 +1,6 @@
 filetype off " required
 " vim-plug
-call plug#begin('~/.vim/bundle')
+call plug#begin()
 
 " languages
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -526,7 +526,7 @@ let g:Lf_PreviewInPopup = 1
 
 " vim-startify
 let g:startify_bookmarks = [
-    \ {'c': '~/.vimrc'},
+    \ {'c': '~/.config/vim/vimrc'},
     \ {'a': '~/.config/alacritty/alacritty.yml'},
     \ {'f': '~/.config/fish/config.fish'},
     \ {'z': '~/.zshrc'},
