@@ -5,12 +5,6 @@ silent: true
 vars:
   ACTIVE_TOOLS:
     map:
-      alacritty:
-        website: https://alacritty.org/
-        github: https://github.com/alacritty/alacritty
-        version: alacritty --version
-        files:
-          - .config/alacritty/alacritty.yml
       doom:
         website: https://doomemacs.org/
         github: https://github.com/doomemacs/core
@@ -92,6 +86,9 @@ vars:
           - .yabairc
   INACTIVE_TOOLS:
     map:
+      alacritty:
+        website: https://alacritty.org/
+        github: https://github.com/alacritty/alacritty
       finicky:
         website: https://johnste.github.io/finicky/
         github: https://github.com/johnste/finicky
