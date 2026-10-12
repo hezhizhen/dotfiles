@@ -14,7 +14,7 @@
     helper = store
 [core]
     pager        = delta
-    excludesfile = /Users/hezhizhen/.gitignore
+    excludesfile = ~/.gitignore
 [color]
     ui = true
 [color "diff-highlight"]
