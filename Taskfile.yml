@@ -77,7 +77,7 @@ vars:
         github: https://github.com/tmux/tmux
         version: tmux -V
         files:
-          - .tmux.conf
+          - .config/tmux/tmux.conf
       yabai:
         website: https://github.com/koekeishiya/yabai/wiki
         github: https://github.com/koekeishiya/yabai
