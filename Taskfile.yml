@@ -83,7 +83,7 @@ vars:
         github: https://github.com/koekeishiya/yabai
         version: yabai --version
         files:
-          - .yabairc
+          - .config/yabai/yabairc
   INACTIVE_TOOLS:
     map:
       alacritty:
