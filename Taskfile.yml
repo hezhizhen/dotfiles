@@ -22,7 +22,6 @@ vars:
         files:
           - .config/jrnl/jrnl.yaml
       neofetch:
-        website: https://github.com/dylanaraps/neofetch/wiki
         github: https://github.com/dylanaraps/neofetch
         version: neofetch --version
         files:
@@ -41,11 +40,6 @@ vars:
           - .config/nvim/lua/config/options.lua
           - .config/nvim/lua/plugins/default.lua
           - .config/nvim/stylua.toml
-      skhd:
-        github: https://github.com/asmvik/skhd
-        version: skhd --version
-        files:
-          - .config/skhd/skhdrc
       starship:
         website: https://starship.rs/
         github: https://github.com/starship/starship
@@ -65,17 +59,10 @@ vars:
         files:
           - .gitconfig
       tmux:
-        website: https://github.com/tmux/tmux/wiki
         github: https://github.com/tmux/tmux
         version: tmux -V
         files:
           - .config/tmux/tmux.conf
-      yabai:
-        website: https://github.com/koekeishiya/yabai/wiki
-        github: https://github.com/koekeishiya/yabai
-        version: yabai --version
-        files:
-          - .config/yabai/yabairc
   INACTIVE_TOOLS:
     map:
       alacritty:
@@ -87,9 +74,13 @@ vars:
       finicky:
         website: https://johnste.github.io/finicky/
         github: https://github.com/johnste/finicky
+      skhd:
+        github: https://github.com/asmvik/skhd
       vim:
         website: https://www.vim.org/
         github: https://github.com/vim/vim
+      yabai:
+        github: https://github.com/asmvik/yabai
 
 tasks:
   default:
