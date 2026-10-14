@@ -10,6 +10,9 @@ vars:
         version: aerospace --version
         files:
           - .config/aerospace/aerospace.toml
+      bat:
+        github: https://github.com/sharkdp/bat
+        version: bat --version
       fish:
         website: https://fishshell.com/
         github: https://github.com/fish-shell/fish-shell
