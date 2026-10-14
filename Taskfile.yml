@@ -24,6 +24,10 @@ vars:
         version: jrnl --version
         files:
           - .config/jrnl/jrnl.yaml
+      kitty:
+        website: https://sw.kovidgoyal.net/kitty/
+        github: https://github.com/kovidgoyal/kitty
+        version: kitty --version
       neofetch:
         github: https://github.com/dylanaraps/neofetch
         version: neofetch --version
