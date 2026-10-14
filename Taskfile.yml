@@ -13,6 +13,8 @@ vars:
       bat:
         github: https://github.com/sharkdp/bat
         version: bat --version
+        files:
+          - .config/bat/config
       fish:
         website: https://fishshell.com/
         github: https://github.com/fish-shell/fish-shell
