@@ -22,6 +22,8 @@ vars:
         website: https://ghostty.org/
         github: https://github.com/ghostty-org/ghostty
         version: ghostty --version
+        files:
+          - .config/ghostty/config.ghostty
       jrnl:
         website: https://jrnl.sh/
         github: https://github.com/jrnl-org/jrnl
