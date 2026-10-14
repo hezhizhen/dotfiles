@@ -8,6 +8,8 @@ vars:
       aerospace:
         github: https://github.com/nikitabobko/AeroSpace
         version: aerospace --version
+        files:
+          - .config/aerospace/aerospace.toml
       fish:
         website: https://fishshell.com/
         github: https://github.com/fish-shell/fish-shell
