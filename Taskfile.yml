@@ -2,88 +2,6 @@ version: "3"
 
 silent: true
 
-vars:
-  ACTIVE_TOOLS:
-    map:
-      aerospace:
-        github: https://github.com/nikitabobko/AeroSpace
-        version: aerospace --version
-        config: .config/aerospace
-      bat:
-        github: https://github.com/sharkdp/bat
-        version: bat --version
-        config: .config/bat
-      fish:
-        website: https://fishshell.com/
-        github: https://github.com/fish-shell/fish-shell
-        version: fish --version
-        config: .config/fish
-      ghostty:
-        website: https://ghostty.org/
-        github: https://github.com/ghostty-org/ghostty
-        version: ghostty --version
-        config: .config/ghostty
-      jrnl:
-        website: https://jrnl.sh/
-        github: https://github.com/jrnl-org/jrnl
-        version: jrnl --version
-        config: .config/jrnl
-      kitty:
-        website: https://sw.kovidgoyal.net/kitty/
-        github: https://github.com/kovidgoyal/kitty
-        version: kitty --version
-        config: .config/kitty
-      nvim:
-        website: https://neovim.io/
-        github: https://github.com/neovim/neovim
-        version: nvim --version
-        config: .config/nvim
-      starship:
-        website: https://starship.rs/
-        github: https://github.com/starship/starship
-        version: starship --version
-        config: .config/starship.toml
-      tig:
-        website: https://jonas.github.io/tig/
-        github: https://github.com/jonas/tig
-        version: tig --version
-        config: .config/tig
-      git:
-        website: https://git-scm.com/
-        github: https://github.com/git/git
-        version: git --version
-        config: .gitconfig
-      tmux:
-        github: https://github.com/tmux/tmux
-        version: tmux -V
-        config: .config/tmux
-  INACTIVE_TOOLS:
-    map:
-      alacritty:
-        website: https://alacritty.org/
-        github: https://github.com/alacritty/alacritty
-        config: .config/alacritty
-      doom:
-        website: https://doomemacs.org/
-        github: https://github.com/doomemacs/core
-        config: .config/doom
-      finicky:
-        website: https://johnste.github.io/finicky/
-        github: https://github.com/johnste/finicky
-      neofetch:
-        github: https://github.com/dylanaraps/neofetch
-        config: .config/neofetch
-      skhd:
-        github: https://github.com/asmvik/skhd
-        config: .config/skhd
-      vim:
-        website: https://www.vim.org/
-        github: https://github.com/vim/vim
-        config: .config/vim
-      yabai:
-        github: https://github.com/asmvik/yabai
-        config: .config/yabai
-
 tasks:
   default:
     cmds:
@@ -98,18 +16,20 @@ tasks:
     preconditions:
       - sh: command -v code >/dev/null 2>&1
         msg: 请将 VS Code 的 code 命令加入 PATH。
+      - sh: command -v uv >/dev/null 2>&1
+        msg: 请先安装 uv。
     cmds:
-      - for: {var: ACTIVE_TOOLS}
-        cmd: ./scripts/compare.sh "{{.ITEM.config}}" "$HOME/{{.ITEM.config}}"
+      - uv run scripts/tools.py compare tools.csv
 
   versions:
     desc: Record versions of active tools
     summary: |
-      将 active 工具的版本写入 version.csv，未获取到版本时标记为 ∅。
+      更新 tools.csv 中 active 工具的 version 列，未获取到版本时标记为 ∅。
+    preconditions:
+      - sh: command -v uv >/dev/null 2>&1
+        msg: 请先安装 uv。
     cmds:
-      - |
-        ./scripts/versions.sh version.csv{{range $name, $tool := .ACTIVE_TOOLS}} \
-          {{shellQuote $name}} {{shellQuote $tool.version}}{{end}}
+      - uv run scripts/tools.py versions tools.csv
 
   spell:
     desc: Check spelling in repository files
