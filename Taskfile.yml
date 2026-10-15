@@ -8,98 +8,81 @@ vars:
       aerospace:
         github: https://github.com/nikitabobko/AeroSpace
         version: aerospace --version
-        files:
-          - .config/aerospace/aerospace.toml
+        config: .config/aerospace
       bat:
         github: https://github.com/sharkdp/bat
         version: bat --version
-        files:
-          - .config/bat/config
+        config: .config/bat
       fish:
         website: https://fishshell.com/
         github: https://github.com/fish-shell/fish-shell
         version: fish --version
-        files:
-          - .config/fish/config.fish
-          - .config/fish/fish_variables
-          - .config/fish/functions/fetch-upstream.fish
-          - .config/fish/functions/fish_greeting.fish
-          - .config/fish/functions/set-upstream.fish
+        config: .config/fish
       ghostty:
         website: https://ghostty.org/
         github: https://github.com/ghostty-org/ghostty
         version: ghostty --version
-        files:
-          - .config/ghostty/config.ghostty
+        config: .config/ghostty
       jrnl:
         website: https://jrnl.sh/
         github: https://github.com/jrnl-org/jrnl
         version: jrnl --version
-        files:
-          - .config/jrnl/jrnl.yaml
+        config: .config/jrnl
       kitty:
         website: https://sw.kovidgoyal.net/kitty/
         github: https://github.com/kovidgoyal/kitty
         version: kitty --version
-        files:
-          - .config/kitty/kitty.conf
+        config: .config/kitty
       nvim:
         website: https://neovim.io/
         github: https://github.com/neovim/neovim
         version: nvim --version
-        files:
-          - .config/nvim/init.lua
-          - .config/nvim/lazy-lock.json
-          - .config/nvim/lazyvim.json
-          - .config/nvim/lua/config/autocmds.lua
-          - .config/nvim/lua/config/keymaps.lua
-          - .config/nvim/lua/config/lazy.lua
-          - .config/nvim/lua/config/options.lua
-          - .config/nvim/lua/plugins/default.lua
-          - .config/nvim/stylua.toml
+        config: .config/nvim
       starship:
         website: https://starship.rs/
         github: https://github.com/starship/starship
         version: starship --version
-        files:
-          - .config/starship.toml
+        config: .config/starship.toml
       tig:
         website: https://jonas.github.io/tig/
         github: https://github.com/jonas/tig
         version: tig --version
-        files:
-          - .config/tig/config
+        config: .config/tig
       git:
         website: https://git-scm.com/
         github: https://github.com/git/git
         version: git --version
-        files:
-          - .gitconfig
+        config: .gitconfig
       tmux:
         github: https://github.com/tmux/tmux
         version: tmux -V
-        files:
-          - .config/tmux/tmux.conf
+        config: .config/tmux
   INACTIVE_TOOLS:
     map:
       alacritty:
         website: https://alacritty.org/
         github: https://github.com/alacritty/alacritty
+        config: .config/alacritty
       doom:
         website: https://doomemacs.org/
         github: https://github.com/doomemacs/core
+        config: .config/doom
       finicky:
         website: https://johnste.github.io/finicky/
         github: https://github.com/johnste/finicky
       neofetch:
         github: https://github.com/dylanaraps/neofetch
+        config: .config/neofetch
       skhd:
         github: https://github.com/asmvik/skhd
+        config: .config/skhd
       vim:
         website: https://www.vim.org/
         github: https://github.com/vim/vim
+        config: .config/vim
       yabai:
         github: https://github.com/asmvik/yabai
+        config: .config/yabai
 
 tasks:
   default:
@@ -110,22 +93,14 @@ tasks:
     desc: Compare configuration files in VS Code
     summary: |
       用 VS Code 对比 active 配置，左侧为仓库文件，右侧为 home 下相同路径的文件。
+      配置路径支持文件和目录，目录中的文件递归比较。
       本机文件缺失时，提示并打开仓库文件。
     preconditions:
       - sh: command -v code >/dev/null 2>&1
         msg: 请将 VS Code 的 code 命令加入 PATH。
     cmds:
       - for: {var: ACTIVE_TOOLS}
-        cmd: |
-          {{range .ITEM.files}}
-          local_file="$HOME/{{.}}"
-          if [ -f "$local_file" ]; then
-            code --diff "{{.}}" "$local_file"
-          else
-            printf '∅ 本地不存在：%s\n' "$local_file"
-            code "{{.}}"
-          fi
-          {{end}}
+        cmd: ./scripts/compare.sh "{{.ITEM.config}}" "$HOME/{{.ITEM.config}}"
 
   versions:
     desc: Record versions of active tools
@@ -133,18 +108,8 @@ tasks:
       将 active 工具的版本写入 version.csv，未获取到版本时标记为 ∅。
     cmds:
       - |
-        snapshot=$(mktemp version.csv.XXXXXX)
-        trap 'rm -f "$snapshot"' EXIT
-        {
-          printf 'Tool,Version\n'
-          {{range $name, $tool := .ACTIVE_TOOLS}}
-          version_output=$({ {{$tool.version}}; } 2>/dev/null) || version_output=
-          version_value=$(printf '%s\n' "${version_output:-∅}" | sed -nE '1{s/^[^0-9]*([0-9]+(\.[0-9]+)+[[:alnum:].+-]*).*/\1/;s/"/""/g;p;}')
-          printf '"%s","%s"\n' "{{$name}}" "$version_value"
-          {{end}}
-        } > "$snapshot"
-        mv "$snapshot" version.csv
-        printf '已更新 version.csv\n'
+        ./scripts/versions.sh version.csv{{range $name, $tool := .ACTIVE_TOOLS}} \
+          {{shellQuote $name}} {{shellQuote $tool.version}}{{end}}
 
   spell:
     desc: Check spelling in repository files
