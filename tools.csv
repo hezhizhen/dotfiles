@@ -1,22 +1,23 @@
 name,status,config,website,github,version_command,version
-aerospace,active,.config/aerospace,,https://github.com/nikitabobko/AeroSpace,aerospace --version,0.21.3-Beta
+AeroSpace,active,.config/aerospace,,https://github.com/nikitabobko/AeroSpace,aerospace --version,0.21.3-Beta
 bat,active,.config/bat,,https://github.com/sharkdp/bat,bat --version,0.26.1
-fastfetch,active,.config/fastfetch,,https://github.com/fastfetch-cli/fastfetch,fastfetch --version,2.70.0
+Fastfetch,active,.config/fastfetch,,https://github.com/fastfetch-cli/fastfetch,fastfetch --version,2.70.0
 fish,active,.config/fish,https://fishshell.com/,https://github.com/fish-shell/fish-shell,fish --version,4.9.3
-ghostty,active,.config/ghostty,https://ghostty.org/,https://github.com/ghostty-org/ghostty,ghostty --version,1.3.2-main+291fd050b
+Ghostty,active,.config/ghostty,https://ghostty.org/,https://github.com/ghostty-org/ghostty,ghostty --version,1.3.2-main+291fd050b
 jrnl,active,.config/jrnl,https://jrnl.sh/,https://github.com/jrnl-org/jrnl,jrnl --version,4.6
 kitty,active,.config/kitty,https://sw.kovidgoyal.net/kitty/,https://github.com/kovidgoyal/kitty,kitty --version,0.49.2
-neovide,active,.config/neovide,https://neovide.dev/,https://github.com/neovide/neovide,neovide --version,0.16.2
-nvim,active,.config/nvim,https://neovim.io/,https://github.com/neovim/neovim,nvim --version,0.12.6
-sketchybar,active,.config/sketchybar,https://felixkratz.github.io/SketchyBar/,https://github.com/FelixKratz/SketchyBar,sketchybar --version,2.24.1
-starship,active,.config/starship.toml,https://starship.rs/,https://github.com/starship/starship,starship --version,1.26.0
-tig,active,.config/tig,https://jonas.github.io/tig/,https://github.com/jonas/tig,tig --version,2.6.1
-git,active,.gitconfig,https://git-scm.com/,https://github.com/git/git,git --version,2.56.0
+Neovide,active,.config/neovide,https://neovide.dev/,https://github.com/neovide/neovide,neovide --version,0.16.2
+Neovim,active,.config/nvim,https://neovim.io/,https://github.com/neovim/neovim,nvim --version,0.12.6
+SketchyBar,active,.config/sketchybar,https://felixkratz.github.io/SketchyBar/,https://github.com/FelixKratz/SketchyBar,sketchybar --version,2.24.1
+Starship,active,.config/starship.toml,https://starship.rs/,https://github.com/starship/starship,starship --version,1.26.0
+Tig,active,.config/tig,https://jonas.github.io/tig/,https://github.com/jonas/tig,tig --version,2.6.1
+Git,active,.gitconfig,https://git-scm.com/,https://github.com/git/git,git --version,2.56.0
 tmux,active,.config/tmux,,https://github.com/tmux/tmux,tmux -V,3.8
-alacritty,inactive,.config/alacritty,https://alacritty.org/,https://github.com/alacritty/alacritty,,
-doom,inactive,.config/doom,https://doomemacs.org/,https://github.com/doomemacs/core,,
-finicky,inactive,,https://johnste.github.io/finicky/,https://github.com/johnste/finicky,,
-neofetch,inactive,.config/neofetch,,https://github.com/dylanaraps/neofetch,,
+Visual Studio Code,active,Library/Application Support/Code/User,https://code.visualstudio.com/,https://github.com/microsoft/vscode,code --version,1.142.0
+Alacritty,inactive,.config/alacritty,https://alacritty.org/,https://github.com/alacritty/alacritty,,
+Doom Emacs,inactive,.config/doom,https://doomemacs.org/,https://github.com/doomemacs/core,,
+Finicky,inactive,,https://johnste.github.io/finicky/,https://github.com/johnste/finicky,,
+Neofetch,inactive,.config/neofetch,,https://github.com/dylanaraps/neofetch,,
 skhd,inactive,.config/skhd,,https://github.com/asmvik/skhd,,
-vim,inactive,.config/vim,https://www.vim.org/,https://github.com/vim/vim,,
+Vim,inactive,.config/vim,https://www.vim.org/,https://github.com/vim/vim,,
 yabai,inactive,.config/yabai,,https://github.com/asmvik/yabai,,
