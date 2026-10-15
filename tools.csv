@@ -6,6 +6,7 @@ fish,active,.config/fish,https://fishshell.com/,https://github.com/fish-shell/fi
 ghostty,active,.config/ghostty,https://ghostty.org/,https://github.com/ghostty-org/ghostty,ghostty --version,1.3.2-main+291fd050b
 jrnl,active,.config/jrnl,https://jrnl.sh/,https://github.com/jrnl-org/jrnl,jrnl --version,4.6
 kitty,active,.config/kitty,https://sw.kovidgoyal.net/kitty/,https://github.com/kovidgoyal/kitty,kitty --version,0.49.2
+neovide,active,.config/neovide,https://neovide.dev/,https://github.com/neovide/neovide,neovide --version,0.16.2
 nvim,active,.config/nvim,https://neovim.io/,https://github.com/neovim/neovim,nvim --version,0.12.6
 sketchybar,active,.config/sketchybar,https://felixkratz.github.io/SketchyBar/,https://github.com/FelixKratz/SketchyBar,sketchybar --version,2.24.1
 starship,active,.config/starship.toml,https://starship.rs/,https://github.com/starship/starship,starship --version,1.26.0

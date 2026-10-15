@@ -1,0 +1,33 @@
+# https://github.com/neovide/neovide/blob/0.16.2/website/docs/config-file.md
+# Keep defaults commented so Neovide supplies platform-specific values.
+
+# fork = false
+# frame = "full"
+# idle = true
+# maximized = false
+# mouse-cursor-icon = "arrow"
+# no-multigrid = false
+# opengl = false
+# srgb = false # macOS/Linux; true on Windows
+# tabs = true
+# system-native-tabs = false
+# system-pinned-hotkey = "cmd+ctrl+z"
+# system-switcher-hotkey = "cmd+ctrl+n"
+# system-tab-prev-hotkey = "cmd+shift+["
+# system-tab-next-hotkey = "cmd+shift+]"
+# title-hidden = false
+# vsync = true
+# wayland-app-id = "neovide"
+# wsl = false
+# x11-wm-class = "neovide"
+# x11-wm-class-instance = "neovide"
+
+# [font]
+# normal = []
+# size = 14.0
+
+# [box-drawing]
+# mode = "native"
+
+# [box-drawing.sizes]
+# default = [2, 4]
