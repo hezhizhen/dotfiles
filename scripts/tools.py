@@ -53,7 +53,16 @@ def config_files(path, follow_symlinks=True):
     return files
 
 
-def compare_tools(rows, root):
+def compare_tools(rows, root, tool=None):
+    if tool:
+        row = next((row for row in rows if row["name"] == tool), None)
+        if row is None:
+            raise ValueError(f"未知工具：{tool}，请使用 tools.csv 中的 name")
+        if row["status"] != "active":
+            raise ValueError(f"{tool}: 工具已停用")
+        if not row["config"]:
+            raise ValueError(f"{tool}: 未设置配置路径")
+        rows = [row]
     rows = [row for row in rows if row["status"] == "active" and row["config"]]
     for row in rows:
         try:
@@ -110,11 +119,14 @@ def main():
     parser = argparse.ArgumentParser(description="读取工具清单，对比配置或更新本机版本。")
     parser.add_argument("command", choices=("compare", "versions"))
     parser.add_argument("csv", type=Path, nargs="?", default=Path("tools.csv"))
+    parser.add_argument("--tool", help="仅 compare：指定 tools.csv 中的工具名，区分大小写")
     args = parser.parse_args()
+    if args.tool is not None and args.command != "compare":
+        parser.error("--tool 仅适用于 compare")
     try:
         fields, rows = read_tools(args.csv)
         if args.command == "compare":
-            compare_tools(rows, args.csv.resolve().parent)
+            compare_tools(rows, args.csv.resolve().parent, args.tool)
         else:
             update_versions(args.csv, fields, rows)
     except (csv.Error, OSError, ValueError) as error:

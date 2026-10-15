@@ -11,6 +11,7 @@ tasks:
     desc: Compare configuration files in VS Code
     summary: |
       用 VS Code 对比 active 配置，左侧为仓库文件，右侧为 home 下相同路径的文件。
+      用 task compare TOOL=Neovim 指定一个 active 工具，工具名使用 tools.csv 的 name。
       配置路径支持文件和目录，目录中的文件递归比较。
       本机文件缺失时，提示并打开仓库文件。
     preconditions:
@@ -19,7 +20,7 @@ tasks:
       - sh: command -v uv >/dev/null 2>&1
         msg: 请先安装 uv。
     cmds:
-      - uv run scripts/tools.py compare tools.csv
+      - uv run scripts/tools.py compare tools.csv --tool {{.TOOL | default "" | shellQuote}}
 
   versions:
     desc: Record versions of active tools
