@@ -7,6 +7,7 @@ ghostty,active,.config/ghostty,https://ghostty.org/,https://github.com/ghostty-o
 jrnl,active,.config/jrnl,https://jrnl.sh/,https://github.com/jrnl-org/jrnl,jrnl --version,4.6
 kitty,active,.config/kitty,https://sw.kovidgoyal.net/kitty/,https://github.com/kovidgoyal/kitty,kitty --version,0.49.2
 nvim,active,.config/nvim,https://neovim.io/,https://github.com/neovim/neovim,nvim --version,0.12.6
+sketchybar,active,.config/sketchybar,https://felixkratz.github.io/SketchyBar/,https://github.com/FelixKratz/SketchyBar,sketchybar --version,2.24.1
 starship,active,.config/starship.toml,https://starship.rs/,https://github.com/starship/starship,starship --version,1.26.0
 tig,active,.config/tig,https://jonas.github.io/tig/,https://github.com/jonas/tig,tig --version,2.6.1
 git,active,.gitconfig,https://git-scm.com/,https://github.com/git/git,git --version,2.56.0
