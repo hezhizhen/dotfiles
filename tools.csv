@@ -9,6 +9,7 @@ kitty,active,.config/kitty,https://sw.kovidgoyal.net/kitty/,https://github.com/k
 Neovide,active,.config/neovide,https://neovide.dev/,https://github.com/neovide/neovide,neovide --version,0.16.2
 Neovim,active,.config/nvim,https://neovim.io/,https://github.com/neovim/neovim,nvim --version,0.12.6
 SketchyBar,active,.config/sketchybar,https://felixkratz.github.io/SketchyBar/,https://github.com/FelixKratz/SketchyBar,sketchybar --version,2.24.1
+Squirrel,active,Library/Rime,https://rime.im/,https://github.com/rime/squirrel,/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' '/Library/Input Methods/Squirrel.app/Contents/Info.plist',1.1.2
 Starship,active,.config/starship.toml,https://starship.rs/,https://github.com/starship/starship,starship --version,1.26.0
 Tig,active,.config/tig,https://jonas.github.io/tig/,https://github.com/jonas/tig,tig --version,2.6.1
 Git,active,.gitconfig,https://git-scm.com/,https://github.com/git/git,git --version,2.56.0
