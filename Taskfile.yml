@@ -43,11 +43,6 @@ vars:
         version: kitty --version
         files:
           - .config/kitty/kitty.conf
-      neofetch:
-        github: https://github.com/dylanaraps/neofetch
-        version: neofetch --version
-        files:
-          - .config/neofetch/config.conf
       nvim:
         website: https://neovim.io/
         github: https://github.com/neovim/neovim
@@ -96,6 +91,8 @@ vars:
       finicky:
         website: https://johnste.github.io/finicky/
         github: https://github.com/johnste/finicky
+      neofetch:
+        github: https://github.com/dylanaraps/neofetch
       skhd:
         github: https://github.com/asmvik/skhd
       vim:
