@@ -1,0 +1,21 @@
+# mise config files are hierarchical. mise will find all of the config files
+# in all parent directories and merge them together.
+# You might have a structure like:
+#
+# * ~/work/project/mise.toml   # a config file for a specific work project
+# * ~/work/mise.toml           # a config file for projects related to work
+# * ~/.config/mise/config.toml # the global config file
+# * /etc/mise/config.toml      # the system config file
+#
+# This setup allows you to define default versions and configuration across
+# all projects but override them for specific projects.
+
+# [env]
+# NODE_ENV = "development"
+# _.file = ".env"                # load vars from a dotenv file
+# _.path = "./node_modules/.bin" # add a directory to PATH
+
+# [tools]
+# node = "22"
+# python = "3.12"
+# go = "latest"
