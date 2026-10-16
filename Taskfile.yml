@@ -25,7 +25,7 @@ tasks:
   versions:
     desc: Record versions of active tools
     summary: |
-      更新 tools.csv 中 active 工具的 version 列，未获取到版本时标记为 ∅。
+      更新 tools.csv 中 active 工具的 version 列，未获取到版本时留空。
     preconditions:
       - sh: command -v uv >/dev/null 2>&1
         msg: 请先安装 uv。

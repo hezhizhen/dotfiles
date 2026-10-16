@@ -89,10 +89,10 @@ def compare_tools(rows, root, tool=None):
 
 def read_version(command):
     if not command:
-        return "∅"
+        return ""
     result = subprocess.run(["bash", "-c", command], stdin=subprocess.DEVNULL, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, encoding="utf-8", errors="replace")
     match = VERSION_PATTERN.match(result.stdout.partition("\n")[0])
-    return match.group(1) if result.returncode == 0 and match else "∅"
+    return match.group(1) if result.returncode == 0 and match else ""
 
 
 def update_versions(path, fields, rows):
