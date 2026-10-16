@@ -1,5 +1,6 @@
 name,status,config,website,github,version_command,version
 AeroSpace,active,.config/aerospace,,https://github.com/nikitabobko/AeroSpace,aerospace --version,0.21.3-Beta
+Atuin,active,.config/atuin,https://atuin.sh/,https://github.com/atuinsh/atuin,atuin --version,18.24.0
 bat,active,.config/bat,,https://github.com/sharkdp/bat,bat --version,0.26.1
 Fastfetch,active,.config/fastfetch,,https://github.com/fastfetch-cli/fastfetch,fastfetch --version,2.70.0
 fish,active,.config/fish,https://fishshell.com/,https://github.com/fish-shell/fish-shell,fish --version,4.9.3
