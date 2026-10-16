@@ -19,6 +19,7 @@ GitHub CLI,active,.config/gh,https://cli.github.com/,https://github.com/cli/cli,
 tmux,active,.config/tmux,,https://github.com/tmux/tmux,tmux -V,3.8
 uv,active,.config/uv,https://docs.astral.sh/uv/,https://github.com/astral-sh/uv,uv --version,0.13.1
 Visual Studio Code,active,Library/Application Support/Code/User,https://code.visualstudio.com/,https://github.com/microsoft/vscode,code --version,1.142.0
+Zellij,active,.config/zellij,https://zellij.dev/,https://github.com/zellij-org/zellij,zellij --version,0.45.1
 Alacritty,inactive,.config/alacritty,https://alacritty.org/,https://github.com/alacritty/alacritty,,
 Doom Emacs,inactive,.config/doom,https://doomemacs.org/,https://github.com/doomemacs/core,,
 Finicky,inactive,,https://johnste.github.io/finicky/,https://github.com/johnste/finicky,,
