@@ -17,6 +17,7 @@ Tig,active,.config/tig,https://jonas.github.io/tig/,https://github.com/jonas/tig
 Git,active,.gitconfig,https://git-scm.com/,https://github.com/git/git,git --version,2.56.0
 GitHub CLI,active,.config/gh,https://cli.github.com/,https://github.com/cli/cli,gh --version,2.102.0
 tmux,active,.config/tmux,,https://github.com/tmux/tmux,tmux -V,3.8
+Todoist CLI,active,.config/todoist-cli,https://todoist.com/cli,https://github.com/Doist/todoist-cli,td --version,5.4.10
 uv,active,.config/uv,https://docs.astral.sh/uv/,https://github.com/astral-sh/uv,uv --version,0.13.1
 Visual Studio Code,active,Library/Application Support/Code/User,https://code.visualstudio.com/,https://github.com/microsoft/vscode,code --version,1.142.0
 Zellij,active,.config/zellij,https://zellij.dev/,https://github.com/zellij-org/zellij,zellij --version,0.45.1
