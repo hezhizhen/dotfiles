@@ -14,6 +14,7 @@ Starship,active,.config/starship.toml,https://starship.rs/,https://github.com/st
 Tig,active,.config/tig,https://jonas.github.io/tig/,https://github.com/jonas/tig,tig --version,2.6.1
 Git,active,.gitconfig,https://git-scm.com/,https://github.com/git/git,git --version,2.56.0
 tmux,active,.config/tmux,,https://github.com/tmux/tmux,tmux -V,3.8
+uv,active,.config/uv,https://docs.astral.sh/uv/,https://github.com/astral-sh/uv,uv --version,0.13.1
 Visual Studio Code,active,Library/Application Support/Code/User,https://code.visualstudio.com/,https://github.com/microsoft/vscode,code --version,1.142.0
 Alacritty,inactive,.config/alacritty,https://alacritty.org/,https://github.com/alacritty/alacritty,,
 Doom Emacs,inactive,.config/doom,https://doomemacs.org/,https://github.com/doomemacs/core,,
