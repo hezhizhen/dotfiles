@@ -4,6 +4,7 @@ bat,active,.config/bat,,https://github.com/sharkdp/bat,bat --version,0.26.1
 Fastfetch,active,.config/fastfetch,,https://github.com/fastfetch-cli/fastfetch,fastfetch --version,2.70.0
 fish,active,.config/fish,https://fishshell.com/,https://github.com/fish-shell/fish-shell,fish --version,4.9.3
 Ghostty,active,.config/ghostty,https://ghostty.org/,https://github.com/ghostty-org/ghostty,ghostty --version,1.3.2-main+a2e440396
+htop,active,.config/htop,https://htop.dev/,https://github.com/htop-dev/htop,htop --version,3.5.3-3.5.3
 jrnl,active,.config/jrnl,https://jrnl.sh/,https://github.com/jrnl-org/jrnl,jrnl --version,4.6
 kitty,active,.config/kitty,https://sw.kovidgoyal.net/kitty/,https://github.com/kovidgoyal/kitty,kitty --version,0.49.2
 mise,active,.config/mise,https://mise.jdx.dev/,https://github.com/jdx/mise,mise --version,2026.10.11
