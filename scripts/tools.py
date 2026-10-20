@@ -1,5 +1,6 @@
 import argparse
 import csv
+import filecmp
 import os
 import re
 import stat
@@ -53,6 +54,68 @@ def config_files(path, follow_symlinks=True):
     return files
 
 
+def count_config_tree_entries(path):
+    count = 0
+    pending = [path]
+    try:
+        while pending:
+            with os.scandir(pending.pop()) as entries:
+                for entry in entries:
+                    count += 1
+                    if entry.is_dir(follow_symlinks=False):
+                        pending.append(entry.path)
+    except OSError:
+        return None
+    return count
+
+
+def print_config_tree(repo_path, local_path, prefix="", connector=""):
+    names = []
+    suffix = ""
+    failed_side = None
+    try:
+        modes = []
+        for side, path in (("仓库", repo_path), ("本机", local_path)):
+            mode = 0
+            try:
+                mode = path.lstat().st_mode
+            except (FileNotFoundError, NotADirectoryError):
+                pass
+            if not connector and stat.S_ISLNK(mode):
+                try:
+                    mode = path.stat().st_mode
+                except OSError:
+                    failed_side = side
+                    raise
+            modes.append(stat.S_IFMT(mode))
+        repo_mode, local_mode = modes
+        repo_dir, local_dir = map(stat.S_ISDIR, modes)
+        if not repo_mode:
+            marker = "仅本机"
+        elif not local_mode:
+            marker = "仅仓库"
+        elif repo_mode != local_mode:
+            types = {stat.S_IFREG: "文件", stat.S_IFDIR: "目录", stat.S_IFLNK: "链接"}
+            marker = f"类型不同：仓库{types.get(repo_mode, '其他')}／本机{types.get(local_mode, '其他')}"
+        else:
+            marker = ""
+        suffix = "/" if repo_dir or local_dir else "@" if stat.S_ISLNK(repo_mode) or stat.S_ISLNK(local_mode) else ""
+        if repo_dir and local_dir:
+            names = sorted({child.name for directory in (repo_path, local_path) for child in directory.iterdir()}, key=os.fsencode)
+        elif (repo_dir or local_dir) and (not repo_mode or not local_mode):
+            count = count_config_tree_entries(repo_path if repo_dir else local_path)
+            marker += "，无法统计" if count is None else f"，{count} 项"
+    except OSError:
+        marker = "无法读取"
+        if failed_side is not None:
+            marker, suffix = f"{failed_side}链接目标不可用", "@"
+    print(f"{prefix}{connector}{repo_path.name}{suffix}" + (f" [{marker}]" if marker else ""))
+    child_prefix = prefix + ("    " if connector == "└── " else "│   " if connector else "")
+    for index, name in enumerate(names):
+        child_connector = "└── " if index == len(names) - 1 else "├── "
+        print_config_tree(repo_path / name, local_path / name, child_prefix, child_connector)
+
+
 def compare_tools(rows, root, tool=None):
     if tool:
         row = next((row for row in rows if row["name"] == tool), None)
@@ -70,6 +133,17 @@ def compare_tools(rows, root, tool=None):
         except (FileNotFoundError, NotADirectoryError):
             raise ValueError(f"{row['name']}: 仓库中不存在 {row['config']!r}") from None
 
+    if rows:
+        print("目录树只表示结构：仅仓库／仅本机、类型不同、链接目标不可用、无法读取／无法统计；/ 为目录，@ 为符号链接。内容相同则跳过，本机链接（文件或目录）按目标内容比较。")
+    for row in rows:
+        config = Path(row["config"])
+        repo_path = root / config
+        local_path = Path.home() / config
+        print(f"\n{row['name']}\n仓库：{repo_path}\n本机：{local_path}")
+        print_config_tree(repo_path, local_path)
+    if rows:
+        print(flush=True)
+
     for row in rows:
         config = Path(row["config"])
         repo_path = root / config
@@ -77,12 +151,18 @@ def compare_tools(rows, root, tool=None):
         for repo_file in sorted(config_files(repo_path), key=os.fsencode):
             local_file = local_path / repo_file.relative_to(repo_path)
             if local_file.is_file():
+                try:
+                    if filecmp.cmp(repo_file, local_file, shallow=False):
+                        continue
+                except OSError:
+                    # 预检查失败时仍交给 VS Code 展示文件错误。
+                    pass
                 command = ["code", "--diff", str(repo_file), str(local_file)]
             else:
                 if local_file.is_dir():
                     print(f"! 本地路径是目录：{local_file}", flush=True)
                 else:
-                    print(f"∅ 本地不存在：{local_file}", flush=True)
+                    print(f"∅ 本地无可比较文件：{local_file}", flush=True)
                 command = ["code", str(repo_file)]
             subprocess.run(command, stdin=subprocess.DEVNULL, check=True)
 
