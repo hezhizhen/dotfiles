@@ -6,6 +6,7 @@ import re
 import stat
 import subprocess
 import tempfile
+import unicodedata
 from pathlib import Path
 
 
@@ -69,51 +70,60 @@ def count_config_tree_entries(path):
     return count
 
 
-def print_config_tree(repo_path, local_path, prefix="", connector=""):
-    names = []
-    suffix = ""
-    failed_side = None
-    try:
-        modes = []
-        for side, path in (("仓库", repo_path), ("本机", local_path)):
-            mode = 0
+def config_tree_rows(repo_path, local_path, depth=0):
+    paths = (repo_path, local_path)
+    modes = []
+    markers = ["", ""]
+    names = set()
+    for side, path in enumerate(paths):
+        mode = 0
+        try:
+            mode = path.lstat().st_mode
+        except (FileNotFoundError, NotADirectoryError):
+            pass
+        except OSError:
+            markers[side] = "无法读取"
+        if depth == 0 and stat.S_ISLNK(mode):
             try:
-                mode = path.lstat().st_mode
-            except (FileNotFoundError, NotADirectoryError):
-                pass
-            if not connector and stat.S_ISLNK(mode):
+                mode = path.stat().st_mode
+            except OSError:
+                markers[side] = "链接目标不可用"
+        modes.append(stat.S_IFMT(mode))
+    if not any(modes) and not any(markers):
+        return
+    if not any(markers) and not all(modes):
+        side = 0 if modes[0] else 1
+        markers[side] = "仅仓库" if side == 0 else "仅本机"
+        if stat.S_ISDIR(modes[side]):
+            count = count_config_tree_entries(paths[side])
+            markers[side] += "，无法统计" if count is None else f"，{count} 项"
+    elif not any(markers) and modes[0] != modes[1]:
+        types = {stat.S_IFREG: "文件", stat.S_IFDIR: "目录", stat.S_IFLNK: "链接"}
+        markers = [f"类型不同：{types.get(mode, '其他')}" for mode in modes]
+    else:
+        for side, path in enumerate(paths):
+            if stat.S_ISDIR(modes[side]):
                 try:
-                    mode = path.stat().st_mode
+                    names.update(child.name for child in path.iterdir())
                 except OSError:
-                    failed_side = side
-                    raise
-            modes.append(stat.S_IFMT(mode))
-        repo_mode, local_mode = modes
-        repo_dir, local_dir = map(stat.S_ISDIR, modes)
-        if not repo_mode:
-            marker = "仅本机"
-        elif not local_mode:
-            marker = "仅仓库"
-        elif repo_mode != local_mode:
-            types = {stat.S_IFREG: "文件", stat.S_IFDIR: "目录", stat.S_IFLNK: "链接"}
-            marker = f"类型不同：仓库{types.get(repo_mode, '其他')}／本机{types.get(local_mode, '其他')}"
-        else:
-            marker = ""
-        suffix = "/" if repo_dir or local_dir else "@" if stat.S_ISLNK(repo_mode) or stat.S_ISLNK(local_mode) else ""
-        if repo_dir and local_dir:
-            names = sorted({child.name for directory in (repo_path, local_path) for child in directory.iterdir()}, key=os.fsencode)
-        elif (repo_dir or local_dir) and (not repo_mode or not local_mode):
-            count = count_config_tree_entries(repo_path if repo_dir else local_path)
-            marker += "，无法统计" if count is None else f"，{count} 项"
-    except OSError:
-        marker = "无法读取"
-        if failed_side is not None:
-            marker, suffix = f"{failed_side}链接目标不可用", "@"
-    print(f"{prefix}{connector}{repo_path.name}{suffix}" + (f" [{marker}]" if marker else ""))
-    child_prefix = prefix + ("    " if connector == "└── " else "│   " if connector else "")
-    for index, name in enumerate(names):
-        child_connector = "└── " if index == len(names) - 1 else "├── "
-        print_config_tree(repo_path / name, local_path / name, child_prefix, child_connector)
+                    markers[side] = "无法读取"
+    cells = []
+    for path, mode, marker in zip(paths, modes, markers):
+        suffix = "/" if stat.S_ISDIR(mode) else "@" if stat.S_ISLNK(mode) else ""
+        cells.append("  " * depth + path.name + suffix + (f" [{marker}]" if marker else "") if mode or marker else "")
+    yield tuple(cells)
+    for name in sorted(names, key=os.fsencode):
+        yield from config_tree_rows(repo_path / name, local_path / name, depth + 1)
+
+
+def print_config_tree(repo_path, local_path):
+    def display_width(value):
+        return sum(0 if unicodedata.combining(char) else 2 if unicodedata.east_asian_width(char) in "WF" else 1 for char in value)
+
+    rows = list(config_tree_rows(repo_path, local_path))
+    width = max((display_width(left) for left, _ in rows), default=0)
+    for left, right in rows:
+        print(f"{left}{' ' * (width - display_width(left))} │ {right}".rstrip())
 
 
 def compare_tools(rows, root, tool=None):
@@ -134,7 +144,7 @@ def compare_tools(rows, root, tool=None):
             raise ValueError(f"{row['name']}: 仓库中不存在 {row['config']!r}") from None
 
     if rows:
-        print("目录树只表示结构：仅仓库／仅本机、类型不同、链接目标不可用、无法读取／无法统计；/ 为目录，@ 为符号链接。内容相同则跳过，本机链接（文件或目录）按目标内容比较。")
+        print("目录树左侧仓库、右侧本机，空白表示缺失；仅表示结构：仅仓库／仅本机、类型不同、链接目标不可用、无法读取／无法统计；/ 为目录，@ 为符号链接。内容相同则跳过，本机链接（文件或目录）按目标内容比较。")
     for row in rows:
         config = Path(row["config"])
         repo_path = root / config
