@@ -18,9 +18,17 @@ Credit to @fatih and his [dotfiles][5]
 # install all brew dependencies
 brew bundle
 
-# compare repository configurations with local files
+# show comparison help and available tools
 task compare
+
+# compare Neovim configurations
+task compare -- nvim
+
+# compare all repository configurations with local files
+task compare -- all
 ```
+
+Tool selection accepts the full name or CLI name from `tools.csv`, case-insensitively (for example, `GitHub CLI` or `gh`).
 
 ## Screenshots
 

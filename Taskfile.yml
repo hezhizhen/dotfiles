@@ -10,19 +10,18 @@ tasks:
   compare:
     desc: Compare configuration files in VS Code
     summary: |
+      task compare 显示帮助和可选工具；task compare -- nvim 比较 Neovim，task compare -- all 比较全部。
+      支持完整名称或 CLI 名称（如 gh、td、code），不区分大小写；带空格的名称需加引号。
       用 VS Code 递归比较 active 配置，左侧为仓库文件，右侧为 home 下相同路径；内容相同则跳过。
-      用 task compare TOOL=Neovim 指定工具，名称取自 tools.csv 的 name。
       比较前并排输出目录树，左侧仓库、右侧本机，按相对路径对齐，缺失一侧留空。
       单侧目录折叠并统计全部子项，计数失败标为无法统计。
       类型不同的条目显示两侧类型并停止展开；目录内链接不展开，根链接目标不可用时单独标记。
       本机链接（文件或目录）按目标内容比较；内容读取失败仍打开 diff，本机无可比较文件则打开仓库文件。
     preconditions:
-      - sh: command -v code >/dev/null 2>&1
-        msg: 请将 VS Code 的 code 命令加入 PATH。
       - sh: command -v uv >/dev/null 2>&1
         msg: 请先安装 uv。
     cmds:
-      - uv run scripts/tools.py compare tools.csv --tool {{.TOOL | default "" | shellQuote}}
+      - uv run scripts/tools.py compare tools.csv {{.CLI_ARGS}}
 
   versions:
     desc: Record versions of active tools

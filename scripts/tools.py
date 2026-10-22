@@ -3,6 +3,8 @@ import csv
 import filecmp
 import os
 import re
+import shlex
+import shutil
 import stat
 import subprocess
 import tempfile
@@ -10,7 +12,7 @@ import unicodedata
 from pathlib import Path
 
 
-FIELDS = ("name", "status", "config", "website", "github", "version_command", "version")
+FIELDS = ("name", "cli", "status", "config", "website", "github", "version_command", "version")
 VERSION_PATTERN = re.compile(r"^[^0-9]*([0-9]+(?:\.[0-9]+)+[A-Za-z0-9.+-]*)")
 
 
@@ -21,19 +23,20 @@ def read_tools(path):
         if not fields or not set(FIELDS).issubset(fields) or len(fields) != len(set(fields)):
             raise ValueError(f"{path}: 缺少必要字段或存在重复字段，必需字段：{', '.join(FIELDS)}")
         rows = []
-        names = set()
+        names = {"all"}
         for row in reader:
             if None in row or None in row.values():
                 raise ValueError(f"{path}:{reader.line_num}: 字段数量与表头不一致")
-            if not row["name"].strip() or row["name"] in names:
-                raise ValueError(f"{path}:{reader.line_num}: 工具名为空或重复")
+            selectors = {value.casefold() for value in (row["name"], row["cli"]) if value}
+            if not row["name"].strip() or names & selectors:
+                raise ValueError(f"{path}:{reader.line_num}: 工具名为空或名称/CLI 名称重复（all 为保留字）")
             if row["status"] not in ("active", "inactive"):
                 raise ValueError(f"{path}:{reader.line_num}: status 必须为 active 或 inactive")
             if row["config"]:
                 config = Path(row["config"])
                 if not config.parts or config.is_absolute() or ".." in config.parts:
                     raise ValueError(f"{path}:{reader.line_num}: config 必须为仓库内文件或子目录的相对路径")
-            names.add(row["name"])
+            names.update(selectors)
             rows.append(row)
     return fields, rows
 
@@ -128,9 +131,9 @@ def print_config_tree(repo_path, local_path):
 
 def compare_tools(rows, root, tool=None):
     if tool:
-        row = next((row for row in rows if row["name"] == tool), None)
+        row = next((row for row in rows if tool.casefold() in (row["name"].casefold(), row["cli"].casefold())), None)
         if row is None:
-            raise ValueError(f"未知工具：{tool}，请使用 tools.csv 中的 name")
+            raise ValueError(f"未知工具：{tool}，请运行 task compare 查看可选工具")
         if row["status"] != "active":
             raise ValueError(f"{tool}: 工具已停用")
         if not row["config"]:
@@ -205,18 +208,44 @@ def update_versions(path, fields, rows):
     print(f"已更新 {path}")
 
 
+def print_compare_help(rows):
+    usage = (
+        ("task compare", "显示帮助和可选工具"),
+        ("task compare -- nvim", "比较 Neovim 配置"),
+        ("task compare -- all", "比较所有工具配置"),
+        ('task compare -- "Visual Studio Code"', "比较指定工具配置"),
+    )
+    width = max(len(command) for command, _ in usage)
+    print("用法：")
+    for command, description in usage:
+        print(f"  {command:<{width}}  {description}")
+    choices = [("CLI", "完整名称")]
+    for row in rows:
+        if row["status"] == "active" and row["config"]:
+            choices.append((shlex.quote(row["cli"] or "-"), shlex.quote(row["name"])))
+    width = max(len(cli) for cli, _ in choices)
+    print("\n可选工具（完整名称或 CLI 名称，不区分大小写，带空格需加引号）：")
+    for cli, name in choices:
+        print(f"  {cli:<{width}}  {name}")
+
+
 def main():
     parser = argparse.ArgumentParser(description="读取工具清单，对比配置或更新本机版本。")
     parser.add_argument("command", choices=("compare", "versions"))
     parser.add_argument("csv", type=Path, nargs="?", default=Path("tools.csv"))
-    parser.add_argument("--tool", help="仅 compare：指定 tools.csv 中的工具名，区分大小写")
+    parser.add_argument("tool", nargs="?", help="仅 compare：完整名称、CLI 名称或 all；留空显示帮助和可选工具")
     args = parser.parse_args()
     if args.tool is not None and args.command != "compare":
-        parser.error("--tool 仅适用于 compare")
+        parser.error("工具参数仅适用于 compare")
     try:
         fields, rows = read_tools(args.csv)
         if args.command == "compare":
-            compare_tools(rows, args.csv.resolve().parent, args.tool)
+            if not args.tool:
+                print_compare_help(rows)
+            else:
+                if shutil.which("code") is None:
+                    raise ValueError("请将 VS Code 的 code 命令加入 PATH。")
+                compare_tools(rows, args.csv.resolve().parent, None if args.tool.casefold() == "all" else args.tool)
         else:
             update_versions(args.csv, fields, rows)
     except (csv.Error, OSError, ValueError) as error:
